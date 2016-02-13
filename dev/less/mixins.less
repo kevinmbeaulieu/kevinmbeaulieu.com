@@ -2,10 +2,14 @@
 
 @import "variables.less";
 
-.main-font(@size) {
-    font: @main-font-weight @size @main-font-family;
+.base-font(@font-size: @base-font-size, @line-height: 1em, @font-weight: @base-font-weight) {
+    font: @font-weight @font-size/@line-height @base-font-family;
 }
 
 .center-text {
     text-align: center;
+}
+
+.italics {
+    font-style: italic;
 }
