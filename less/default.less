@@ -1,0 +1,83 @@
+// out: ../css/default.css, sourcemap: true, compress: false
+
+@import "mixins.less";
+
+// Common styles
+body {
+    width: 700px;
+    margin: 0 auto;
+}
+
+h2 {
+    .h2();
+}
+
+p {
+    .p();
+}
+
+a {
+    color: @text-color;
+}
+
+section {
+    overflow: hidden;
+    margin-bottom: @base-font-size * 3;
+    .center-text();
+}
+
+.project-grid {
+    @grid-size: 90px;
+    @grid-spacing: 10px;
+    @cell-padding: @base-font-size * 0.67;
+
+    position: relative;
+    height: 3 * @grid-size + 4 * @grid-spacing;
+    text-align: left;
+
+    .cell-1x1 {
+        width: @grid-size - 2 * @cell-padding;
+        height: @grid-size - 2 * @cell-padding;
+    }
+
+    .cell-2x1 {
+        width: @grid-size * 2 + @grid-spacing - 2 * @cell-padding;
+        height: @grid-size - 2 * @cell-padding;
+    }
+
+    .cell-1x2 {
+        width: @grid-size - 2 * @cell-padding;
+        height: @grid-size * 2 + @grid-spacing - 2 * @cell-padding;
+    }
+
+    .cell {
+        margin: @grid-spacing / 2;
+        padding: @cell-padding;
+        border: 1px solid @border-color;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        @font-size: @base-font-size * 1.1;
+        .base-font(@font-size, @font-size * 1.1, 400);
+        color: @text-color;
+        letter-spacing: @font-size * 0.044;
+
+        background-color: @project-grid-cell-bg-color;
+
+        &.spacer {
+            display: none;
+        }
+
+        .cell-positions (@index) when (@index < 30) {
+            &:nth-child(@{index}) {
+                position: absolute;
+                top: floor((@index - 1) / 7) * (@grid-size + @grid-spacing);
+                left: (mod((@index - 1), 7)) * (@grid-size + @grid-spacing);
+            }
+
+            .cell-positions(@index + 1);
+        }
+        .cell-positions(1);
+    }
+}

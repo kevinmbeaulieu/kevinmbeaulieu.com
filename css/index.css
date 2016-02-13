@@ -1,0 +1,10 @@
+#intro-section {
+  position: relative;
+  height: 80vh;
+}
+#title {
+  position: absolute;
+  top: 40vh;
+  left: 0;
+  width: 100%;
+}
