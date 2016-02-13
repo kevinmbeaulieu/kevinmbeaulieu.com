@@ -1,0 +1,27 @@
+.desktop {
+	visibility:hidden;
+}
+
+.mobile {
+	visibility: visible;
+}
+
+#title {
+	font-size:3em;
+}
+
+section p {
+	padding:25px 20px 25px 20px;
+}
+
+.btn:hover > *:first-child {
+	margin-top:-3.33em;
+}
+
+img, img.large {
+	float: none !important; /* Should override element-level styles */
+	display: block;
+	margin: 0 auto;
+	max-width: 80vw;
+	max-height: 80vw;
+}

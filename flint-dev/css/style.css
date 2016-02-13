@@ -1,0 +1,362 @@
+@font-face {
+    font-family: CodeLight;
+    src: url("../fonts/CODE Light.otf") format("opentype");
+}
+@font-face {
+    font-family: CodeBold;
+    src: url("../fonts/CODE Bold.otf") format("opentype");
+}
+
+/*
+red: #b31b1b
+orange: #ff8300
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height:100%;
+    max-width: 100%;
+    min-width: 1000px;
+}
+
+body {
+    background: #ECEEF2;
+    font-family:'Open Sans', Helvetica, sans-serif;
+    color:#24282C;
+    padding:0px;
+    margin:0px;
+    height: 100%;
+}
+
+.mobile {
+    visibility: hidden;
+}
+
+h1 {
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+h2, h3, h4, h5, h6 {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+header {
+    font-family: Montserrat, Roboto, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 0.8em;
+    width: 100%;
+    height: 50px;
+    -webkit-backface-visibility: none;
+    backface-visibility: none;
+    background-color: #b31b1b;
+    color: white;
+    z-index: 1;
+}
+
+#section-link-container {
+    list-style-type:none;
+    margin:0 0 0 auto;
+    padding:0;
+    display: table;
+}
+
+.section-link {
+    width:150px;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:lowercase;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    padding: 5px 0;
+    cursor:pointer;
+}
+
+.section-link-active {
+    background: white;
+    color: black;
+}
+
+.section-link:hover {
+    background-color: white;
+    color: black;
+}
+
+section {
+    position:relative;
+    width: calc(100% - 100px);
+    opacity:1;
+    padding: 50px;
+    display: table;
+}
+
+section.dark {
+    /*background:#24282C;
+    color: #ECEEF2;*/
+    background: #BCBEC2;
+    color: #24282C;
+}
+
+section.light {
+    background:#ECEEF2;
+    color: #24282C;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+
+/* CSS Animations */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-webkit-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-moz-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-ms-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-o-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-webkit-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-moz-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-ms-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-o-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+
+@keyframes slide-left-full {
+    from {
+        transform:translateX(100%);
+    }
+    to {
+        transform:translateX(0%);
+    }
+}
+@-webkit-keyframes slide-left-full {
+    from {
+        -webkit-transform:translateX(100%);
+    }
+    to {
+        -webkit-transform:translateX(0%);
+    }
+}
+@-moz-keyframes slide-left-full {
+    from {
+        -moz-transform:translateX(100%);
+    }
+    to {
+        -moz-transform:translateX(0%);
+    }
+}
+@-o-keyframes slide-left-full {
+    from {
+        -o-transform:translateX(100%);
+    }
+    to {
+        -o-transform:translateX(0%);
+    }
+}
+
+
+@keyframes slide-left-short {
+    from {
+        transform:translateX(100px) scale(0.5, 1);
+    }
+    to {
+        transform:translateX(0px) scale(1, 1);
+    }
+}
+@-webkit-keyframes slide-left-short {
+    from {
+        -webkit-transform:translateX(100px);
+    }
+    to {
+        -webkit-transform:translateX(0px);
+    }
+}
+@-moz-keyframes slide-left-short {
+    from {
+        -moz-transform:translateX(100px);
+    }
+    to {
+        -moz-transform:translateX(0px);
+    }
+}
+@-o-keyframes slide-left-short {
+    from {
+        -o-transform:translateX(100px);
+    }
+    to {
+        -o-transform:translateX(0px);
+    }
+}
+
+
+
+@keyframes slide-right-full {
+    from {
+        transform:translateX(-100%);
+    }
+    to {
+        transform:translateX(0%);
+    }
+}
+@-webkit-keyframes slide-right-full {
+    from {
+        -webkit-transform:translateX(-100%);
+    }
+    to {
+        -webkit-transform:translateX(0%);
+    }
+}
+@-moz-keyframes slide-right-full {
+    from {
+        -moz-transform:translateX(-100%);
+    }
+    to {
+        -moz-transform:translateX(0%);
+    }
+}
+@-o-keyframes slide-right-full {
+    from {
+        -o-transform:translateX(-100%);
+    }
+    to {
+        -o-transform:translateX(0%);
+    }
+}
+
+
+@keyframes slide-up-full {
+    from {
+        transform:translateY(100%);
+    }
+    to {
+        transform:translateY(0%);
+    }
+}
+@-webkit-keyframes slide-up-full {
+    from {
+        -webkit-transform:translateY(100%);
+    }
+    to {
+        -webkit-transform:translateY(0%);
+    }
+}
+@-moz-keyframes slide-up-full {
+    from {
+        -moz-transform:translateY(100%);
+    }
+    to {
+        -moz-transform:translateY(0%);
+    }
+}
+@-o-keyframes slide-up-full {
+    from {
+        -o-transform:translateY(100%);
+    }
+    to {
+        -o-transform:translateY(0%);
+    }
+}
+
+
+@keyframes slide-down-full {
+    from {
+        transform:translateY(-100%);
+    }
+    to {
+        transform:translateY(0%);
+    }
+}
+@-webkit-keyframes slide-down-full {
+    from {
+        -webkit-transform:translateY(-100%);
+    }
+    to {
+        -webkit-transform:translateY(0%);
+    }
+}
+@-moz-keyframes slide-down-full {
+    from {
+        -moz-transform:translateY(-100%);
+    }
+    to {
+        -moz-transform:translateY(0%);
+    }
+}
+@-o-keyframes slide-down-full {
+    from {
+        -o-transform:translateY(-100%);
+    }
+    to {
+        -o-transform:translateY(0%);
+    }
+}
+
+
+@keyframes expand {
+    from {
+        transform:scale(0.8, 1);
+    }
+    to {
+        transform:scale(1, 1);
+    }
+}
+@-webkit-keyframes expand {
+    from {
+        -webkit-transform:scale(0.8, 1);
+    }
+    to {
+        -webkit-transform:scale(1, 1);
+    }
+}
+@-moz-keyframes expand {
+    from {
+        -moz-transform:scale(0.8, 1);
+    }
+    to {
+        -moz-transform:scale(1, 1);
+    }
+}
+@-o-keyframes expand {
+    from {
+        -o-transform:scale(0.8, 1);
+    }
+    to {
+        -o-transform:scale(1, 1);
+    }
+}

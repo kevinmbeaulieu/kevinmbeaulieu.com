@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/design.css">
+<title>Icon Fall Bounce</title>
+</head>
+
+<body>
+
+<script>
+
+var icons;
+var index;
+
+window.onload = function() {
+	$("#icon-grid").css("position", "absolute");
+	$("#icon-grid").css("left", (window.innerWidth - $("#icon-grid").width())*0.5);
+	$("#icon-grid").css("top", (window.innerHeight - $("#icon-grid").height())*0.4);
+	
+	icons = document.getElementsByClassName("icon");
+	for(var i = 0; i < icons.length; i++) {
+		var icon = icons[i];
+		$(icon).css("opacity", 0);
+	}
+	
+	index = 0;
+	showIcon();
+};
+
+function showIcon() {
+	$(icons[index]).addClass("icon-fall-bounce");
+	$(icons[index]).css("opacity", 1);
+	
+	index++;
+	if(index < icons.length) setTimeout(showIcon, 50);
+	else {
+		//$(".icon").removeClass("icon-fall-bounce");
+	}
+}
+
+</script>
+
+<table id="icon-grid" cellpadding="15">
+	<tr>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+	</tr>
+	<tr>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+		<td class="icon-container"><img src="Icon@2x.png" class="icon" /></td>
+	</tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">-->
+
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+<title>Kevin Beaulieu</title>
+</head>
+
+<body>
+
+    <section id="section-0">
+        <canvas id="intro-shapes"></canvas>
+        <object type="image/svg+xml" data="img/title.svg"><h1>Kevin Beaulieu</h1></object>
+    </section>
+
+    <section>
+        <h2>My Story</h2>
+        <p>
+            My name is Kevin, and I study computer science, philosophy, business & physics at Cornell University.
+            I'm a thinker, a software engineer, & a designer.
+            I love to contemplate challenging problems and   craft creative, interdisciplinary solutions.
+        </p>
+    </section>
+
+    <section>
+        <h2>My Work</h2>
+        <!-- TODO: create grid -->
+    </section>
+
+    <section>
+        <h2>Let's Talk!</h2>
+        <p>
+            KEVINMBEAULIEU@GMAIL.COM
+            (614) 477-6779
+            https://www.linkedin.com/in/kevinmbeaulieu
+        </p>
+    </section>
+
+    <script type="text/javascript">
+        /*
+         * On page load
+         */
+        /*var is_mobile = false;
+        var more_section_indices = new Array();
+        var more_section_heights = new Array();
+        var canvas = document.getElementById("canvas-0");
+        var context = canvas.getContext('2d');
+        var t;
+        var bubbles = new Array();
+        var bubble_density = 0.02;
+        var start_bubbles = 0;
+        var num_columns = -1;
+
+        $(window).load(function(e) {
+            relayout();
+
+            // Randomly generate bubbles
+            start_bubbles = bubble_density * canvas.width;
+            for(var i = 0; i < start_bubbles; i++) {
+                generateBubble(false);
+            }
+        });
+
+        $(window).resize(function() {
+            relayout();
+        });
+
+        function relayout() {
+            var screenWidth = document.documentElement.clientWidth;
+
+            // Position title
+            var fontSize = 5;
+            do {
+                $("#title").css("font-size", fontSize + "em");
+                $("#title").css("left", "calc(50% - " + ($("#title").width() / 2) + "px)");
+                fontSize /= 2.0;
+            } while($("#title").width() > screenWidth);
+
+            // Set up canvas
+            canvas.width = screenWidth - 1;
+            canvas.height = window.innerHeight;
+
+            // Re-layout category tiles
+            reflowGrid();
+        }
+
+        function goToArticleAfterDelay(article) {
+            setTimeout(function() {
+                window.location.href = "http://www.kevinmbeaulieu.com/" + article;
+            }, 250);
+        }
+
+        function Bubble(x, y, speed, angle, accel_speed, accel_angle, radius) {
+            this.x = x;
+            this.y = y;
+            this.speed = speed;
+            this.angle = angle;
+            this.accel_speed = accel_speed;
+            this.accel_angle = accel_angle;
+            this.radius = radius;
+        }
+
+        function generateBubble(at_top, position) {
+            if(position == null) {
+                radius = Math.random()*50 + 20;
+                position = new Object();
+                position.x = Math.random() * canvas.width;
+                if(at_top) position.y = -radius - 5;
+                else position.y = Math.random() * canvas.height;
+            }
+            else {
+                radius = Math.random()*20 + 10;
+            }
+            var speed = Math.random()*0.5 + 0.25;
+            var angle = Math.random()*Math.PI/2 + Math.PI*5/4;
+            var accel_speed = 0;
+            var accel_angle = 0;
+            bubbles.push(new Bubble(position.x, position.y, speed, angle, accel_speed, accel_angle, radius));
+        }
+
+        window.requestAnimFrame = (function(callback) {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame
+                || window.mozRequestAnimationFrame || window.oRequestAnimationFrame
+                || window.msRequestAnimationFrame ||
+                function(callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+
+        function animate() {
+            // update
+            var now = new Date().getTime();
+            var dt = now - (t || now);
+            t = now;
+
+            var new_bubble_rate = 0.0125;
+
+            if(Math.random()<new_bubble_rate) generateBubble(true);
+            if(!is_mobile && is_mouse_down) {
+                generateBubble(false, mouse_position);
+            }
+
+
+            // clear
+            context.save();
+            context.setTransform(1, 0, 0, 1, 0, 0);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.restore();
+
+            if(!is_mobile && mouse_position != null) {
+                context.beginPath();
+                context.arc(mouse_position.x, mouse_position.y, 25, 0, 2*Math.PI);
+                context.closePath();
+                context.strokeStyle = "rgba(128, 218, 255, 0.7)";
+                context.stroke();
+            }
+
+            context.strokeStyle = "rgba(128, 218, 255, 0.9)";
+            for(var i = 0; i < bubbles.length; i++) {
+                var bubble = bubbles[i];
+                context.beginPath();
+                context.arc(bubble.x, bubble.y, bubble.radius, 0, 2*Math.PI);
+                context.closePath();
+                context.stroke();
+
+                bubble.x += bubble.speed * Math.cos(bubble.angle);
+                bubble.y -= bubble.speed * Math.sin(bubble.angle);
+
+                bubble.speed += bubble.accel_speed;
+                bubble.angle += bubble.accel_angle;
+
+                if(bubble.x < -bubble.radius-6 || bubble.x > canvas.width+bubble.radius+6 ||
+                    bubble.y < -bubble.radius-6 || bubble.y > canvas.height+bubble.radius+6) {
+                    bubbles.splice(i, 1);
+                    i--;
+                }
+            }
+
+            // request new frame
+            requestAnimFrame(animate);
+        }
+        animate();*/
+    </script>
+
+</body>
+
+</html>

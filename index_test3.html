@@ -1,0 +1,492 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100">
+
+<link rel="stylesheet" type="text/css" href="css/default_test3.css">
+<script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Kevin Beaulieu</title>
+</head>
+
+<body>
+
+	<section id="section-0">
+		<canvas id="canvas-0"></canvas>
+		<h1 id="title">KEVIN BEAULIEU</h1>
+		<div id="scroll-down-indicator-back">
+			<div id="scroll-down-indicator-front"></div>
+		</div>
+		
+		<div id="bubbles-tip" class="desktop">I wonder what happens<br />if I click and drag my mouse?...</div>
+	</section>
+	
+	<section id="section-1">
+		<div id="hex-grid">
+			<div class="hex-row">
+				<div class="hex clear">
+					<div class="top"></div>
+					<div class="middle"></div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle"></div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Cerebrum</div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Electrode</div>
+					<div class="bottom"></div>
+				</div>
+			</div>
+			<div class="hex-row even">
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Cornell University Autonomous Underwater Vehicle Team</div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Endless Mobile</div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Naval Surface Warfare Center</div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle"></div>
+					<div class="bottom"></div>
+				</div>
+			</div>
+			<div class="hex-row">
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Animation</div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Analytic Services Inc.</div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex clear">
+					<div class="top"></div>
+					<div class="middle"></div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle"></div>
+					<div class="bottom"></div>
+				</div>
+			</div>
+			<div class="hex-row even">
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">re:member</div>
+					<div class="bottom"></div>
+				</div>
+				<div class="hex">
+					<div class="top"></div>
+					<div class="middle">Graphic Design</div>
+					<div class="bottom"></div>
+				</div>
+			</div>
+		</div>
+		<!--<ul id="category-grid">-->
+			<!--<svg width="0%" height="0%">
+			  <defs>
+			    <clipPath id="myClip">
+			      <ellipse rx="50" ry="75" 
+			        cx="50" cy="150" 
+			        transform="rotate(-30)"/>
+			      <polygon 
+			        points="350,25  379,141 469,
+			                141 397,195
+			                423,281 350,230 277,281 303,195
+			                231,141 321,141" />
+
+			      <circle cx="350" cy="168" r="80"/>
+			    </clipPath>
+			  </defs>
+			</svg>
+			-->
+			
+		<!--</ul>-->
+	</section>
+	
+	<script type="text/javascript">
+		/*
+		 * On page load
+		 */
+		var is_mobile = false;
+		var more_section_indices = new Array();
+		var more_section_heights = new Array();
+		var canvas = document.getElementById("canvas-0");
+		var context = canvas.getContext('2d');
+		var t;
+		var bubbles = new Array();
+		var bubble_density = 0.02;
+		var start_bubbles = 0;
+		var num_columns = -1;
+
+		$(window).load(function(e) {
+			relayout();
+			
+			// Set up scroll down button
+			$("#scroll-down-indicator-back, #scroll-down-indicator-front").on("click", function(event) {
+				event.preventDefault();
+				$("html, body").animate({
+					scrollTop:$("#section-0").height() + 1
+				}, 1000, "swing");
+			});
+			
+			// Randomly generate bubbles
+			start_bubbles = bubble_density * canvas.width;
+			for(var i = 0; i < start_bubbles; i++) {
+				generateBubble(false);
+			}
+			
+			// Animate in scroll down indicator
+			$("#scroll-down-indicator-back").addClass("scroll-down-indicator-animate-in");
+			$("#scroll-down-indicator-back").css("opacity", 1);
+			setTimeout(function() {
+				$("#scroll-down-indicator-back").removeClass("scroll-down-indicator-animate-in");
+			}, 800);
+			$("#scroll-down-indicator-back").mouseenter(function() {
+				$("#scroll-down-indicator-back").addClass("scroll-down-indicator-hover");
+				setTimeout(function() {
+					$("#scroll-down-indicator-back").removeClass("scroll-down-indicator-hover");
+				}, 400);
+			});
+		});
+		
+		$(window).resize(function() {
+			relayout();
+		});
+		
+		function relayout() {
+			var screenWidth = document.documentElement.clientWidth;
+			
+			// Position title
+			var fontSize = 5;
+			do {
+				$("#title").css("font-size", fontSize + "em");
+				$("#title").css("left", "calc(50% - " + ($("#title").width() / 2) + "px)");
+				fontSize /= 2.0;
+			} while($("#title").width() > screenWidth);
+						
+			// Set up canvas
+			canvas.width = screenWidth - 1;
+			canvas.height = window.innerHeight;
+			
+			// Re-layout category tiles
+			//reflowGrid();
+		}
+		
+		/*function reflowGrid() {
+			var screenWidth = document.documentElement.clientWidth;
+			var screenHeight = window.innerHeight;
+			
+			if(num_columns == 1 && screenWidth > 504) {
+				$("#category-grid > *").removeClass("tileFullx1");
+			}
+			
+			if (screenWidth > 912) { // 4 columns
+				num_columns = 4;
+				var top = Math.max((screenHeight - 608) * 0.4, 50);
+				var left = (screenWidth - 812) / 2;
+				$("#section-1").height(608 + top / 0.4);
+				
+				$("#endless").css({ "left": left+"px", "top": top+"px" });
+				$("#electrode").css({ "left" : left+204+"px", "top": top+"px" });
+				$("#cerebrum").css({ "left": left+408+"px", "top": top+"px" });
+				$("#animation").css({ "left": left+"px", "top": top+204+"px" });
+				$("#anser").css({ "left": left+204+"px", "top": top+204+"px" });
+				$("#remember").css({ "left": left+408+"px", "top": top+204+"px" });
+				$("#navy").css({ "left": left+612+"px", "top": top+204+"px" });
+				$("#cuauv").css({ "left": left+204+"px", "top": top+408+"px" });
+				$("#graphic").css({ "left": left+612+"px", "top": top+408+"px" });
+				
+				$("#category-grid > *").on("click", function() {
+					$("#category-grid > *").each(function() {
+						$(this).css({
+							"position": "fixed",
+							"top": $(this).offset().top - $(window).scrollTop() + "px"
+						});
+					});
+					
+					setTimeout(function() {
+						$("#category-grid > *").addClass("tile-transition-out");
+						
+						$("#endless").css("left", "-200px");
+						$("#electrode").css("top", "-200px");
+						$("#cerebrum").css("left", "100vw");
+						$("#animation").css("top", "100vh");
+						$("#anser").css("left", "-200px");
+						$("#remember").css("top", "-200px");
+						$("#navy").css("left", "100vw");
+						$("#cuauv").css("left", "100vw");
+						$("#graphic").css("top", "100vh");
+					}, 50);
+				});
+			} else if (screenWidth > 708) { // 3 columns
+				num_columns = 3;
+				var top = Math.max((screenHeight - 812) * 0.4, 50);
+				var left = (screenWidth - 608) / 2;
+				$("#section-1").height(812 + top / 0.4);
+				
+				$("#endless").css({ "left": left+"px", "top": top+"px" });
+				$("#cerebrum").css({ "left" : left+204+"px", "top": top+"px" });
+				$("#animation").css({ "left": left+"px", "top": top+204+"px" });
+				$("#electrode").css({ "left": left+204+"px", "top": top+204+"px" });
+				$("#remember").css({ "left": left+408+"px", "top": top+204+"px" });
+				$("#cuauv").css({ "left": left+204+"px", "top": top+408+"px" });
+				$("#anser").css({ "left": left+"px", "top": top+612+"px" });
+				$("#navy").css({ "left": left+204+"px", "top": top+612+"px" });
+				$("#graphic").css({ "left": left+408+"px", "top": top+612+"px" });
+				
+				$("#category-grid > *").on("click", function() {
+					$("#category-grid > *").each(function() {
+						$(this).css({
+							"position": "fixed",
+							"top": $(this).offset().top - $(window).scrollTop() + "px"
+						});
+					});
+					
+					setTimeout(function() {
+						$("#category-grid > *").addClass("tile-transition-out");
+						
+						$("#endless").css("left", "-200px");
+						$("#electrode").css("top", "-200px");
+						$("#cerebrum").css("left", "100vw");
+						$("#animation").css("top", "-404px");
+						$("#anser").css("left", "-200px");
+						$("#remember").css("left", "100vw");
+						$("#navy").css("top", "100vh");
+						$("#cuauv").css("left", "-404px");
+						$("#graphic").css("left", "100vw");
+					}, 50);
+				});
+			} else if (screenWidth > 504) { // 2 columns
+				num_columns = 2;
+				var top = Math.max((screenHeight - 1220) * 0.4, 50);
+				var left = (screenWidth - 404) / 2;
+				$("#section-1").height(1220 + top / 0.4);
+				
+				$("#cerebrum").css({ "left": left+"px", "top": top+"px" });
+				$("#endless").css({ "left": left+"px", "top": top+204+"px" });
+				$("#electrode").css({ "left": left+204+"px", "top": top+204+"px" });
+				$("#animation").css({ "left": left+"px", "top": top+408+"px" });
+				$("#remember").css({ "left": left+204+"px", "top": top+408+"px" });
+				$("#anser").css({ "left": left+204+"px", "top": top+612+"px" });
+				$("#navy").css({ "left": left+"px", "top": top+816+"px" });
+				$("#graphic").css({ "left": left+204+"px", "top": top+816+"px" });
+				$("#cuauv").css({ "left": left+"px", "top": top+1020+"px" });
+				
+				$("#category-grid > *").on("click", function() {
+					$("#category-grid > *").each(function() {
+						$(this).css({
+							"position": "fixed",
+							"top": $(this).offset().top - $(window).scrollTop() + "px"
+						});
+					});
+					
+					setTimeout(function() {
+						$("#category-grid > *").addClass("tile-transition-out");
+						
+						$("#endless").css("top", "-200px");
+						$("#electrode").css("left", "-200px");
+						$("#cerebrum").css("left", "100vw");
+						$("#animation").css("left", "-200px");
+						$("#anser").css("left", "100vw");
+						$("#remember").css("left", "100vw");
+						$("#navy").css("top", "100vh");
+						$("#cuauv").css("left", "100vw");
+						$("#graphic").css("top", "100vh");
+					}, 50);
+				});
+			} else {
+				num_columns = 1;
+				var top = Math.max((screenHeight - 1832) * 0.4, 50);
+				var left = 0;
+				$("#section-1").height(1832 + top / 0.4);
+				
+				$("#category-grid > *").addClass("tileFullx1");
+				
+				$("#cerebrum").css({ "left": left+"px", "top": top+"px" });
+				$("#endless").css({ "left": left+"px", "top": top+204+"px" });
+				$("#electrode").css({ "left": left+"px", "top": top+408+"px" });
+				$("#remember").css({ "left": left+"px", "top": top+612+"px" });
+				$("#anser").css({ "left": left+"px", "top": top+816+"px" });
+				$("#navy").css({ "left": left+"px", "top": top+1020+"px" });
+				$("#animation").css({ "left": left+"px", "top": top+1224+"px" });
+				$("#graphic").css({ "left": left+"px", "top": top+1428+"px" });
+				$("#cuauv").css({ "left": left+"px", "top": top+1632+"px" });
+				
+				$("#category-grid > *").on("click", function() {
+					$("#category-grid > *").each(function() {
+						$(this).css({
+							"position": "fixed",
+							"top": $(this).offset().top - $(window).scrollTop() + "px"
+						});
+					});
+					
+					setTimeout(function() {
+						$("#category-grid > *").addClass("tile-transition-out");
+						
+						$("#cerebrum").css("left", "-100vw");
+						$("#endless").css("left", "100vw");
+						$("#electrode").css("left", "-100vw");
+						$("#remember").css("left", "100vw");
+						$("#anser").css("left", "-100vw");
+						$("#navy").css("left", "100vw");
+						$("#animation").css("left", "-100vw");
+						$("#graphic").css("left", "100vw");
+						$("#cuauv").css("left", "-100vw");
+					}, 50);
+				});
+			}
+		}*/
+		
+		/*
+		 * On scroll (now called every frame from animate)
+		 */
+		//$(window).scroll(function(e) {
+		function update_scroll() {
+			/*
+			 * Update introduction's background color
+			 */
+			var alpha = 1.0 - $(this).scrollTop() / $("#section-0").height();
+			$("#section-0").css("background-color", "rgba(28, 190, 232, "+alpha+")");
+			$("#section-0 *").css("opacity", alpha);
+		}
+		
+		var is_mouse_down = false;
+		var mouse_position = new Object();
+		$("*").mousedown(function(event) {
+			mouse_position.x = event.pageX;
+			mouse_position.y = event.pageY;
+			is_mouse_down = true;
+		})
+		.mouseup(function(event) {
+			is_mouse_down = false;
+		})
+		.mousemove(function(event) {
+			mouse_position.x = event.pageX;
+			mouse_position.y = event.pageY;
+		});
+		
+		function Bubble(x, y, speed, angle, accel_speed, accel_angle, radius) {
+			this.x = x;
+			this.y = y;
+			this.speed = speed;
+			this.angle = angle;
+			this.accel_speed = accel_speed;
+			this.accel_angle = accel_angle;
+			this.radius = radius;
+		}
+
+		function generateBubble(at_top, position) {
+			if(position == null) {
+				radius = Math.random()*50 + 20;
+				position = new Object();
+				position.x = Math.random() * canvas.width;
+				if(at_top) position.y = -radius - 5;
+				else position.y = Math.random() * canvas.height;
+			}
+			else {
+				radius = Math.random()*20 + 10;
+			}
+			var speed = Math.random()*0.5 + 0.25;
+			var angle = Math.random()*Math.PI/2 + Math.PI*5/4;
+			var accel_speed = 0;
+			var accel_angle = 0;
+			bubbles.push(new Bubble(position.x, position.y, speed, angle, accel_speed, accel_angle, radius));
+		}
+		
+		window.requestAnimFrame = (function(callback) {
+			return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+			function(callback) {
+				window.setTimeout(callback, 1000 / 60);
+			};
+		})();
+		
+		function animate() {
+			//update scroll
+			update_scroll();
+			
+			// update
+			var now = new Date().getTime();
+	        var dt = now - (t || now);		 
+		    t = now;
+		    
+			var new_bubble_rate = 0.0125;
+		    
+			if(Math.random()<new_bubble_rate) generateBubble(true);
+			if(!is_mobile && is_mouse_down) {
+				generateBubble(false, mouse_position);
+			}
+
+	
+			// clear
+			context.save();
+			context.setTransform(1, 0, 0, 1, 0, 0);
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			context.restore();
+			
+			if(!is_mobile && mouse_position != null) {
+				context.beginPath();
+				context.arc(mouse_position.x, mouse_position.y, 25, 0, 2*Math.PI);
+				context.closePath();
+				context.strokeStyle = "rgba(128, 218, 255, 0.7)";
+				context.stroke();
+			}
+			
+			context.strokeStyle = "rgba(128, 218, 255, 0.9)";
+			for(var i = 0; i < bubbles.length; i++) {
+				var bubble = bubbles[i];
+				context.beginPath();
+				context.arc(bubble.x, bubble.y, bubble.radius, 0, 2*Math.PI);
+				context.closePath();
+				context.stroke();
+				
+				bubble.x += bubble.speed * Math.cos(bubble.angle);
+				bubble.y -= bubble.speed * Math.sin(bubble.angle);
+				
+				bubble.speed += bubble.accel_speed;
+				bubble.angle += bubble.accel_angle;
+				
+				if(bubble.x < -bubble.radius-6 || bubble.x > canvas.width+bubble.radius+6 ||
+					bubble.y < -bubble.radius-6 || bubble.y > canvas.height+bubble.radius+6) {
+					bubbles.splice(i, 1);
+					i--;
+				}
+			}
+	
+			// request new frame
+			requestAnimFrame(animate);
+		}
+		animate();
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300);
+.center-text {
+  text-align: center;
+}
+h2 {
+  font: 300 62px/74px Lato, Helvetica, sans-serif;
+  letter-spacing: 7.8px;
+  color: #4A4A4A;
+  text-shadow: 0px 1px 1px #4A4A4A;
+}
+p {
+  font: 300 26px/31px Lato, Helvetica, sans-serif;
+  letter-spacing: 3.6px;
+  color: #4A4A4A;
+}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!--<link rel='stylesheet' media='screen and (max-width: 1100px)' href='css/mobile.css'>-->
+    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flint</title>
+</head>
+
+<body>
+
+    <header class="desktop">
+        <ul id="section-link-container">
+            <li id="section-link-0" class="section-link section-link-active">Home</li><!--
+            --><li id="section-link-1" class="section-link">About</li><!-- Comments needed to eliminate white
+            --><li id="section-link-2" class="section-link">Mentorship</li><!-- space between <li> elements
+            --><li id="section-link-3" class="section-link">Challenges</li><!--
+            --><li id="section-link-4" class="section-link">Our Team</li><!--
+            --><li id="section-link-5" class="section-link">Contact</li>
+        </ul>
+    </header>
+
+    <section id="section-0">
+        <table id="intro-container">
+            <tr>
+                <td>
+                    <div id="login-dialog">
+                        <h3>Create a profile</h3>
+                        <h3>Log in</h3>
+                    </div>
+                </td>
+                <td>
+                    <div id="title-container">
+                        <h1 id="title">Welcome to<br />Flint</h1>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="scroll-down-indicator-back">
+            <div id="scroll-down-indicator-front"></div>
+        </div>
+    </section>
+
+    <section id="section-1" class="light">
+        <div class="summary">
+                <h2 class="caption">What is Flint?</h2>
+                <p class="description">Flint is a non-profit organization? that seeks to bridge academic and experiential education by connecting students with established entrepreneurs who will provide them with both guidance and real-world challenges.<br /><br />
+                                         At its core, Flint is a mentorship program between Cornellian students and experienced professionals and/or Cornell alumni. Flint is unique and highly accessible in that it provides a convenient, interactive online platform upon which students and employers can communicate with each other.</p>
+        </div>
+        <br /><br /><br />
+        <div class="summary">
+                <p class="description">Students will gain hands-on experience working on real-world problems, with established professionals. They will not only obtain mentorship from adept and knowledgeable entrepreneurs in the industry in which they are interested, but also have the opportunity to join mentors' startups as interns or full-time employees.</p>
+                <h2 class="caption">For Students</h2>
+        </div>
+        <div class="summary">
+                <h2 class="caption">For Mentors</h2>
+                <p class="description">By tapping into a vast talent pool of Cornellians, mentors can accelerate their talent discovery process. Flint will allow mentors to learn about students in great depth, and thus increase the efficiency and effectivity of their hiring decisions.  Online and offline interaction with students will also gives mentors an avenue towards broader visibility on the Cornell campus.</p>
+        </div>
+        <br /><br /><br />
+        <div class="summary">
+                <p class="description">In scientific terms, flint is a hard, sedimentary cryptocrystalline form of the mineral, quartz. In layman's terms, flint is a rock. But, it's no ordinary rock; under the right circumstances, flint edge can produce sparks which ignite fires.<br /><br />
+                                       Our vision at Flint is to be a spark, or a catalyst, for the enhancement of students' education, experience, and career opportunities. We want to initiate a lifelong flame and dedication towards tackling real-world business problems within students, by first, striking a match between students and experienced mentors.</p>
+                <h2 class="caption">Why Flint?</h2>
+        </div>
+    </section>
+    <section id="section-2" class="dark">
+        <h2 class="section-title">Create a Profile</h2>
+        <table id="select-user-type">
+            <tr>
+                <td>
+                    <h4>I'm a...</h4>
+                </td>
+                <td>
+                    <h3>Cornell student</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <h3>Cornell graduate/Entrepreneur</h3>
+                </td>
+            </tr>
+        </table>
+<!--        <div id="select-user-type">
+            <table>
+                <tr>
+                    <td id="ima">
+                        <h2>I'm a...</h2>
+                    </td>
+                    <td id="user-types">
+                        <ul>
+                            <li>Cornell student</li>
+                            <li>Entrepreneur</li>
+                            <li>Company</li>
+                        </ul>   
+                    </td>
+                </tr>
+            </table>
+        </div>-->
+    </section>
+    
+    <script type="text/javascript">
+        // On page load
+        var isMobile = false;
+        var isPaginatedScrollingEnabled = true;
+        var isScrolling = false;
+        var lastYPos = 0;
+        var sectionN = 0;
+        var SCROLL_DURATION = 500;
+
+        $(window).load(function(e) {
+            // Check whether mobile device
+            //isMobile = $(".desktop").css("visibility") === "hidden";
+
+            // Animate scroll down indicator
+            $("#scroll-down-indicator-back").addClass("scroll-down-indicator-animate-in");
+            $("#scroll-down-indicator-back").css("opacity", 1);
+            setTimeout(function() {
+                $("#scroll-down-indicator-back").removeClass("scroll-down-indicator-animate-in");
+            }, 800);
+            $("#scroll-down-indicator-back").mouseenter(function() {
+                $("#scroll-down-indicator-back").addClass("scroll-down-indicator-hover");
+                setTimeout(function() {
+                    $("#scroll-down-indicator-back").removeClass("scroll-down-indicator-hover");
+                }, 400);
+            });
+            $("#scroll-down-indicator-back").on("touchstart", function() {
+                $("#scroll-down-indicator-back").addClass("scroll-down-indicator-hover");
+                setTimeout(function() {
+                    $("#scroll-down-indicator-back").removeClass("scroll-down-indicator-hover");
+                }, 400);
+            });
+            
+            resetSize();
+        });
+        
+        $(window).on("resize", function(e) {
+            resetSize();
+        });
+        
+        function resetSize() {
+            var windowWidth = document.documentElement.clientWidth;
+            var windowHeight = window.innerHeight;
+            
+            var maxSectionHeight = 0;
+            $(".summary").each(function() {
+                var sectionHeight = $(this).outerHeight(true);
+                if(sectionHeight > maxSectionHeight) maxSectionHeight = sectionHeight;
+            });
+            isPaginatedScrollingEnabled = maxSectionHeight < windowHeight - getHeaderHeight() && !isMobile;
+            console.log("pagination: "+(isPaginatedScrollingEnabled ? "yes":"no")+" w:"+windowHeight+" s:"+maxSectionHeight);
+            
+            //var bgScale = Math.max(windowWidth / )
+            //$("section[data-type=background]").css({ "background-size": bgWidth+"px "+bgHeight+"px" });
+        }
+        
+        // Return height of header, or 0 if header is hidden/non-fixed
+        function getHeaderHeight() {
+            var header = $("header");
+            if(header.css("visibility") === "hidden" ||
+                header.css("position") !== "fixed") {
+                    return 0;
+                }
+            else {
+                return header.outerHeight(false);
+            }
+        }
+        
+        // Scroll to section
+        function scrollToSection() {
+            var sectionId = "#section-"+sectionN;
+            $("html, body").animate({
+                scrollTop:$(sectionId).offset().top - getHeaderHeight() + 1
+            }, SCROLL_DURATION, "swing");
+            
+            setTimeout(function() {
+                isScrolling = false;
+            }, SCROLL_DURATION + 10);
+        }
+        
+        // Handle paginated scrolling
+        /*$(window).on("mousewheel wheel DOMMouseWheel", function(e) {
+            if(!isPaginatedScrollingEnabled) return;
+            e.preventDefault();
+            
+            if (!isScrolling) {
+                if (e.originalEvent.wheelDelta < 0) {
+                    // Scroll down
+                    console.log("DOWN");
+                    if(sectionN + 1 < $("section").size()) {
+                        sectionN++;
+                    }
+                } else if (sectionN > 0) {
+                    // Scroll up
+                    sectionN--;
+                }
+                
+                scrollToSection();
+                isScrolling = true;
+            }
+        });*/
+
+        $(window).scroll(function(e) {
+            if(!isPaginatedScrollingEnabled) e.preventDefault();
+
+            // Update intro page's background color
+//            var alpha = 1.0 - $(window).scrollTop() / window.innerHeight;
+//            $("#section-0, #section-0 *").css("opacity", alpha);
+
+            var shadow = "0px 2px 4px rgba(34, 34, 34, 1)";//" + (1 - alpha) + ")";
+            $("header").css({
+                "-webkit-box-shadow": shadow,
+                "-moz-box-shadow": shadow,
+                "box-shadow": shadow
+            });
+        });
+
+        $("#scroll-down-indicator-back, #scroll-down-indicator-front").on("click", function(event) {
+            event.preventDefault();
+            sectionN = 1;
+            scrollToSection();
+        });
+
+
+        // jQuery function to check if element is visible
+        (function($) {
+              /**
+               * Copyright 2012, Digital Fusion
+               * Licensed under the MIT license.
+               * http://teamdf.com/jquery-plugins/license/
+               *
+               * @author Sam Sehnert
+               * @desc A small plugin that checks whether elements are within
+               *     the user visible viewport of a web browser.
+               *     only accounts for vertical position, not horizontal.
+               */
+            
+              $.fn.visible = function(partial) {
+                
+                  var $t            = $(this),
+                      $w            = $(window),
+                      viewTop       = $w.scrollTop(),
+                      viewBottom    = viewTop + $w.height(),
+                      _top          = $t.offset().top,
+                      _bottom       = _top + $t.height(),
+                      compareTop    = partial === true ? _bottom : _top,
+                      compareBottom = partial === true ? _top : _bottom;
+                
+                return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+            
+              };
+                
+            })(jQuery);
+    </script>
+
+</body>
+
+</html>

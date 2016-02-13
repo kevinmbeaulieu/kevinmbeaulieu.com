@@ -1,0 +1,74 @@
+<!doctype html>
+
+<!--
+
+Hi there! Thanks for taking a look through my code.
+
+-->
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:700">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Vidaloka:700">
+
+<link rel="stylesheet" type="text/css" href="../css/article.css">
+<script type="text/javascript">
+if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || navigator.userAgent.match(/Android/i)) {
+	document.write('<link rel="stylesheet" type="text/css" href="../css/mobile.css"/>');
+}
+</script>
+<script type="text/javascript" src="../jquery-2.1.0.min.js"></script>
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Analytic Services Inc.</title>
+</head>
+
+<body>
+	<div id="menu">
+		<div id="menu-button">menu</div>
+		<ul id="menu-list">
+			<li><a href="..">Home</a></li>
+			<li><a href="../flint">Flint</a></li>
+			<li><a href="../endless">Endless Mobile</a></li>
+			<li><a href="../cerebrum">Cerebrum</a></li>
+			<li><a href="../electrode">Electrode</a></li>
+			<li><a href="../anser">Analytic Services Inc.</a></li>
+			<li><a href="../navy">Naval Surface Warfare Center</a></li>
+			<li><a href="../remember">re:member</a></li>
+			<li><a href="../cuauv">Cornell Autonomous Underwater Vehicle Team</a></li>
+			<li><a href="../sketches">Sketches</a></li>
+		</ul>
+	</div>
+	
+	<h2>Analytic Services Inc.</h2>
+	<section class="content">
+		<p>
+			I spent the summer after 11th grade as an intern for the Homeland Security Studies & Analysis <!--
+			-->Institute (HSSAI) at Analytic Services Inc. in Arlington, VA. HSSAI conducts research on behalf <!--
+			-->of the Department of Homeland Security. During my internship, I built and analyzed a computer <!--
+			-->simulation of the flow of illegal migrants across the U.S.-Mexico border. I taught myself NetLogo, <!--
+			-->a programming language used for creating agent-based simulations. I concluded the summer by <!--
+			-->writing a 45-page report on my findings and presented my results to my mentor's team so they <!--
+			-->could build upon my work in the future.
+		</p>
+		<br />
+		<br />
+		<img src="../images/HSSAI.png" style="margin: 0 auto; display: block;" />
+	</section>
+	
+	<script>
+		$("#menu-button").mouseenter(function() {
+			$("#menu-list").css("display", "block");
+		});
+		$("#menu").mouseleave(function() {
+			$("#menu-list").css("display", "none");
+		});
+	</script>
+
+</body>
+
+</html>
