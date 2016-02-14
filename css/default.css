@@ -41,6 +41,7 @@
 }
 body {
   width: 700px;
+  max-width: 90vw;
   margin: 0 auto;
 }
 h2 {
@@ -90,175 +91,438 @@ section {
   height: 310px;
   text-align: left;
 }
+@media only screen and (max-width: 480px) {
+  .project-grid {
+    height: 1610px;
+  }
+}
 .project-grid .cell-1x1 {
   width: 73.92px;
   height: 73.92px;
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell-1x1 {
+    width: 100%;
+  }
 }
 .project-grid .cell-2x1 {
   width: 173.92px;
   height: 73.92px;
 }
+@media only screen and (max-width: 480px) {
+  .project-grid .cell-2x1 {
+    width: 100%;
+    height: 73.92px;
+  }
+}
 .project-grid .cell-1x2 {
   width: 73.92px;
   height: 173.92px;
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell-1x2 {
+    width: 100%;
+    height: 73.92px;
+  }
+}
+.project-grid span.cell {
+  display: none;
 }
 .project-grid .cell {
   margin: 5px;
   padding: 8.04px;
   border: 1px solid #939498;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
   font: 400 13.2px/14.52px Lato, Helvetica, sans-serif;
   color: #4a4a4a;
   letter-spacing: 0.5808px;
   background-color: #e1e1e1;
 }
-.project-grid .cell.spacer {
-  display: none;
+.project-grid .cell:hover {
+  background-color: #d2d2d2;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
-.project-grid .cell:nth-child(1) {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+.project-grid .cell a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  text-decoration: none;
 }
-.project-grid .cell:nth-child(2) {
-  position: absolute;
-  top: 0px;
-  left: 100px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(1) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
 }
-.project-grid .cell:nth-child(3) {
-  position: absolute;
-  top: 0px;
-  left: 200px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(1) {
+    top: 0px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(4) {
-  position: absolute;
-  top: 0px;
-  left: 300px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(2) {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+  }
 }
-.project-grid .cell:nth-child(5) {
-  position: absolute;
-  top: 0px;
-  left: 400px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(2) {
+    top: 100px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(6) {
-  position: absolute;
-  top: 0px;
-  left: 500px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(3) {
+    position: absolute;
+    top: 0px;
+    left: 200px;
+  }
 }
-.project-grid .cell:nth-child(7) {
-  position: absolute;
-  top: 0px;
-  left: 600px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(3) {
+    top: 200px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(8) {
-  position: absolute;
-  top: 100px;
-  left: 0px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(4) {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+  }
 }
-.project-grid .cell:nth-child(9) {
-  position: absolute;
-  top: 100px;
-  left: 100px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(4) {
+    top: 300px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(10) {
-  position: absolute;
-  top: 100px;
-  left: 200px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(5) {
+    position: absolute;
+    top: 0px;
+    left: 400px;
+  }
 }
-.project-grid .cell:nth-child(11) {
-  position: absolute;
-  top: 100px;
-  left: 300px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(5) {
+    top: 400px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(12) {
-  position: absolute;
-  top: 100px;
-  left: 400px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(6) {
+    position: absolute;
+    top: 0px;
+    left: 500px;
+  }
 }
-.project-grid .cell:nth-child(13) {
-  position: absolute;
-  top: 100px;
-  left: 500px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(6) {
+    top: 500px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(14) {
-  position: absolute;
-  top: 100px;
-  left: 600px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(7) {
+    position: absolute;
+    top: 0px;
+    left: 600px;
+  }
 }
-.project-grid .cell:nth-child(15) {
-  position: absolute;
-  top: 200px;
-  left: 0px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(7) {
+    top: 600px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(16) {
-  position: absolute;
-  top: 200px;
-  left: 100px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(8) {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+  }
 }
-.project-grid .cell:nth-child(17) {
-  position: absolute;
-  top: 200px;
-  left: 200px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(8) {
+    top: 700px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(18) {
-  position: absolute;
-  top: 200px;
-  left: 300px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(9) {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+  }
 }
-.project-grid .cell:nth-child(19) {
-  position: absolute;
-  top: 200px;
-  left: 400px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(9) {
+    top: 800px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(20) {
-  position: absolute;
-  top: 200px;
-  left: 500px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(10) {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+  }
 }
-.project-grid .cell:nth-child(21) {
-  position: absolute;
-  top: 200px;
-  left: 600px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(10) {
+    top: 900px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(22) {
-  position: absolute;
-  top: 300px;
-  left: 0px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(11) {
+    position: absolute;
+    top: 100px;
+    left: 300px;
+  }
 }
-.project-grid .cell:nth-child(23) {
-  position: absolute;
-  top: 300px;
-  left: 100px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(11) {
+    top: 1000px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(24) {
-  position: absolute;
-  top: 300px;
-  left: 200px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(12) {
+    position: absolute;
+    top: 100px;
+    left: 400px;
+  }
 }
-.project-grid .cell:nth-child(25) {
-  position: absolute;
-  top: 300px;
-  left: 300px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(12) {
+    top: 1100px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(26) {
-  position: absolute;
-  top: 300px;
-  left: 400px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(13) {
+    position: absolute;
+    top: 100px;
+    left: 500px;
+  }
 }
-.project-grid .cell:nth-child(27) {
-  position: absolute;
-  top: 300px;
-  left: 500px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(13) {
+    top: 1200px;
+    left: 0;
+  }
 }
-.project-grid .cell:nth-child(28) {
-  position: absolute;
-  top: 300px;
-  left: 600px;
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(14) {
+    position: absolute;
+    top: 100px;
+    left: 600px;
+  }
 }
-.project-grid .cell:nth-child(29) {
-  position: absolute;
-  top: 400px;
-  left: 0px;
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(14) {
+    top: 1300px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(15) {
+    position: absolute;
+    top: 200px;
+    left: 0px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(15) {
+    top: 1400px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(16) {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(16) {
+    top: 1500px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(17) {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(17) {
+    top: 1600px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(18) {
+    position: absolute;
+    top: 200px;
+    left: 300px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(18) {
+    top: 1700px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(19) {
+    position: absolute;
+    top: 200px;
+    left: 400px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(19) {
+    top: 1800px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(20) {
+    position: absolute;
+    top: 200px;
+    left: 500px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(20) {
+    top: 1900px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(21) {
+    position: absolute;
+    top: 200px;
+    left: 600px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(21) {
+    top: 2000px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(22) {
+    position: absolute;
+    top: 300px;
+    left: 0px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(22) {
+    top: 2100px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(23) {
+    position: absolute;
+    top: 300px;
+    left: 100px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(23) {
+    top: 2200px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(24) {
+    position: absolute;
+    top: 300px;
+    left: 200px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(24) {
+    top: 2300px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(25) {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(25) {
+    top: 2400px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(26) {
+    position: absolute;
+    top: 300px;
+    left: 400px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(26) {
+    top: 2500px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(27) {
+    position: absolute;
+    top: 300px;
+    left: 500px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(27) {
+    top: 2600px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(28) {
+    position: absolute;
+    top: 300px;
+    left: 600px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(28) {
+    top: 2700px;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .project-grid .cell:nth-child(29) {
+    position: absolute;
+    top: 400px;
+    left: 0px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-grid .cell:nth-of-type(29) {
+    top: 2800px;
+    left: 0;
+  }
 }

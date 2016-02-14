@@ -2,81 +2,24 @@
 
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
 <link rel="stylesheet" type="text/css" href="css/default.css">
 <link rel="stylesheet" type="text/css" href="css/index.css">
 
-<!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">-->
+<script src="libs/handlebars.runtime-v4.0.5.js"></script>
+<script src="js/partials.js"></script>
+<script src="js/templates.js"></script>
 
-<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+<meta name="viewport" content="width=device-width" />
+
 <title>Kevin Beaulieu</title>
+
 </head>
 
 <body>
-
-    <section id="intro-section">
-        <canvas id="intro-shapes" width="700px"></canvas>
-        <object id="title" type="image/svg+xml" data="img/title.svg">
-            <img id="title" src="img/title.png" alt="Kevin Beaulieu" />
-        </object>
-    </section>
-
-    <section class="center-text">
-        <h2>My Story</h2>
-        <p>
-            My name is Kevin.<br/>
-            I'm a computer science & philosophy major at Cornell University.
-        </p>
-        <p>
-            I'm a <span class="italics">thinker</span>, a <span class="italics">software
-            engineer</span>, & a <span class="italics">designer</span>.
-        </p>
-        <p>
-            I love to contemplate challenging problems<br/>
-            and craft creative, interdisciplinary solutions.
-        </p>
-    </section>
-
-    <section>
-        <h2>My Work</h2>
-        <div class="project-grid">
-            <div class="cell cell-1x1">Electrode</div>
-            <div class="cell cell-1x1">Lily OS</div>
-            <div class="cell cell-1x2">Endless Mobile</div>
-            <div class="cell cell-1x1">Cerebrum</div>
-            <div class="cell cell-2x1">3D Rendering Algorithm</div>
-            <div class="cell cell-1x1 spacer"></div>
-            <div class="cell cell-1x1">Weather</div>
-            <div class="cell cell-1x2">Thumbtack</div>
-            <div class="cell cell-1x1">Secure Password Manager</div>
-            <div class="cell cell-1x1 spacer"></div>
-            <div class="cell cell-1x1">Flint</div>
-            <div class="cell cell-1x1">Analytic Services Inc.</div>
-            <div class="cell cell-1x1">3D Tetris</div>
-            <div class="cell cell-1x2">Gizmos & Gadgets</div>
-            <div class="cell cell-1x1 spacer"></div>
-            <div class="cell cell-1x1">re:member</div>
-            <div class="cell cell-1x1">Cornell Autonomous Underwater Vehicle Team</div>
-            <div class="cell cell-2x1">Cognitive Hypothesis of the Universe</div>
-            <div class="cell cell-1x1 spacer"></div>
-            <div class="cell cell-1x1">Naval Surface Warfare Center</div>
-            <div class="cell cell-1x1 spacer"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Let's Talk!</h2>
-        <p>
-            <a href="https://www.linkedin.com/in/kevinmbeaulieu" target="_blank">LinkedIn</a><br/>
-            (614) 477-6779<br/>
-            <a href="mailto:kevinmbeaulieu@gmail.com?Subject=Hi!" target="_top">
-                kevinmbeaulieu@gmail.com
-            </a><br/>
-        </p>
-    </section>
-
     <script type="text/javascript">
+        document.body.innerHTML += Handlebars.templates.index();
+
         /*
          * On page load
          */
