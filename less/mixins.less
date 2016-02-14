@@ -14,6 +14,29 @@
     font-style: italic;
 }
 
+.mobile {
+    @media @not-mobile {
+        display: none;
+    }
+}
+
+.not-mobile {
+    @media @mobile {
+        display: none;
+    }
+}
+
+// Media query classes
+.media (@class, @hide-on) {
+    @{class} {
+        @media @hide-on {
+            display: none;
+        }
+    }
+}
+.media(".mobile", @not-mobile);
+.media(".not-mobile", @mobile);
+
 // Header/paragraph tag mixins
 .h2 {
     @font-size: @base-font-size * 3;

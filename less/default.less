@@ -27,6 +27,11 @@ section {
     .center-text();
 }
 
+// Fix for IE's default of width: 150px for all SVGs
+object {
+    width: 100%;
+}
+
 .project-grid {
     @grid-size: 90px;
     @grid-spacing: 10px;
@@ -42,12 +47,17 @@ section {
 
     text-align: left;
 
+    .cell-fullx1() {
+        width: calc(~"100% - 30px");
+        height: @grid-size - 2 * @cell-padding;
+    }
+
     .cell-1x1 {
         width: @grid-size - 2 * @cell-padding;
         height: @grid-size - 2 * @cell-padding;
 
         @media @mobile {
-            width: 100%;
+            .cell-fullx1();
         }
     }
 
@@ -56,8 +66,7 @@ section {
         height: @grid-size - 2 * @cell-padding;
 
         @media @mobile {
-            width: 100%;
-            height: @grid-size - 2 * @cell-padding;
+            .cell-fullx1();
         }
     }
 
@@ -66,8 +75,7 @@ section {
         height: @grid-size * 2 + @grid-spacing - 2 * @cell-padding;
 
         @media @mobile {
-            width: 100%;
-            height: @grid-size - 2 * @cell-padding;
+            .cell-fullx1();
         }
     }
 

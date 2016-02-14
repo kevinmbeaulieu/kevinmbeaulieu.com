@@ -53,26 +53,17 @@
         //     }, 250);
         // }
 
-        function Hexagon(x, y, depth, dir, angle, angspeed) {
-            this.x = x;
-            this.y = y;
-            this.depth = depth;
-            this.dir = dir;
-            this.angle = angle;
-            this.angspeed = angspeed;
-        }
-
-        function drawHexagon(h) {
-            var numberOfSides = 6;
-
+        function drawShape(h) {
             var size = (1 - h.depth) * 10 + 5;
 
             context.beginPath();
-            context.moveTo (h.x +  size * Math.cos(h.angle), h.y + size *  Math.sin(h.angle));
+            context.moveTo(h.x +  size * Math.cos(h.angle),
+                h.y + size *  Math.sin(h.angle));
 
-            for (var i = 1; i <= numberOfSides; i++) {
-                context.lineTo (h.x + size * Math.cos(i * 2 * Math.PI / numberOfSides + h.angle),
-                    h.y + size * Math.sin(i * 2 * Math.PI / numberOfSides + h.angle));
+            for (var i = 1; i <= h.numSides; i++) {
+                context.lineTo(h.x + size * Math.cos(i * 2
+                    * Math.PI / h.numSides + h.angle), h.y + size
+                    * Math.sin(i * 2 * Math.PI / h.numSides + h.angle));
             }
 
             var alpha = 0.5 - h.depth * h.depth;
@@ -83,7 +74,7 @@
 
         function spawnShape(atTop) {
             var depth = Math.random();
-            var dir = -Math.PI / 2;//Math.random()*Math.PI/2 + Math.PI*5/4;
+            var dir = -Math.PI / 2;
             var angle = Math.random()*2*Math.PI;
             var angspeed = Math.random()*0.01;
             var size = (1 - depth) * 10 + 5;
@@ -92,7 +83,20 @@
                 y: atTop ? (-size - 5) : (Math.random() * canvas.height)
             };
 
-            shapes.push(new Hexagon(position.x, position.y, depth, dir, angle, angspeed));
+            var numSides = Math.random() < 0.6 ? 6 : 3;
+            if (numSides == 3) {
+                depth += (1 - depth) * 0.2;
+            }
+
+            shapes.push({
+                numSides: numSides,
+                x: position.x,
+                y: position.y,
+                depth: depth,
+                dir: dir,
+                angle: angle,
+                angspeed: angspeed
+            });
         }
 
         window.requestAnimFrame = (function(callback) {
@@ -116,7 +120,7 @@
             // Draw shapes
             for(var i = 0; i < shapes.length; i++) {
                 var shape = shapes[i];
-                drawHexagon(shape);
+                drawShape(shape);
 
                 var speed = (1 - shape.depth * shape.depth) / 3 + 0.1;
                 shape.x += speed * Math.cos(shape.dir);

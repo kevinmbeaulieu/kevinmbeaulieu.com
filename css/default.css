@@ -5,6 +5,26 @@
 .italics {
   font-style: italic;
 }
+@media only screen and (min-width: 481px) {
+  .mobile {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .not-mobile {
+    display: none;
+  }
+}
+@media only screen and (min-width: 481px) {
+  ".mobile" {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  ".not-mobile" {
+    display: none;
+  }
+}
 .h2 {
   font: 400 36px/39.6px Lato, Helvetica, sans-serif;
   letter-spacing: 5.76px;
@@ -86,6 +106,9 @@ section {
   margin-bottom: 36px;
   text-align: center;
 }
+object {
+  width: 100%;
+}
 .project-grid {
   position: relative;
   height: 310px;
@@ -102,7 +125,8 @@ section {
 }
 @media only screen and (max-width: 480px) {
   .project-grid .cell-1x1 {
-    width: 100%;
+    width: calc(100% - 30px);
+    height: 73.92px;
   }
 }
 .project-grid .cell-2x1 {
@@ -111,7 +135,7 @@ section {
 }
 @media only screen and (max-width: 480px) {
   .project-grid .cell-2x1 {
-    width: 100%;
+    width: calc(100% - 30px);
     height: 73.92px;
   }
 }
@@ -121,7 +145,7 @@ section {
 }
 @media only screen and (max-width: 480px) {
   .project-grid .cell-1x2 {
-    width: 100%;
+    width: calc(100% - 30px);
     height: 73.92px;
   }
 }
