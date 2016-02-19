@@ -15,16 +15,6 @@
     display: none;
   }
 }
-@media only screen and (min-width: 481px) {
-  ".mobile" {
-    display: none;
-  }
-}
-@media only screen and (max-width: 480px) {
-  ".not-mobile" {
-    display: none;
-  }
-}
 .h2 {
   font: 400 36px/39.6px Lato, Helvetica, sans-serif;
   letter-spacing: 5.76px;
@@ -41,7 +31,7 @@
   border-bottom: 1px solid #939498;
   border-top: 1px solid #939498;
   top: 15.48px;
-  width: 100%;
+  width: 1000%;
 }
 .h2::before {
   right: 100%;
@@ -80,7 +70,7 @@ h2::after {
   border-bottom: 1px solid #939498;
   border-top: 1px solid #939498;
   top: 15.48px;
-  width: 100%;
+  width: 1000%;
 }
 h2::before {
   right: 100%;
@@ -109,12 +99,15 @@ section {
 object {
   width: 100%;
 }
+.header-title {
+  width: 160px;
+}
 .project-grid {
   position: relative;
   height: 310px;
   text-align: left;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid {
     height: 1610px;
   }
@@ -123,7 +116,7 @@ object {
   width: 73.92px;
   height: 73.92px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell-1x1 {
     width: calc(100% - 30px);
     height: 73.92px;
@@ -133,7 +126,7 @@ object {
   width: 173.92px;
   height: 73.92px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell-2x1 {
     width: calc(100% - 30px);
     height: 73.92px;
@@ -143,7 +136,7 @@ object {
   width: 73.92px;
   height: 173.92px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell-1x2 {
     width: calc(100% - 30px);
     height: 73.92px;
@@ -173,378 +166,378 @@ object {
   align-items: flex-end;
   text-decoration: none;
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(1) {
     position: absolute;
     top: 0px;
     left: 0px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(1) {
     top: 0px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(2) {
     position: absolute;
     top: 0px;
     left: 100px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(2) {
     top: 100px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(3) {
     position: absolute;
     top: 0px;
     left: 200px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(3) {
     top: 200px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(4) {
     position: absolute;
     top: 0px;
     left: 300px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(4) {
     top: 300px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(5) {
     position: absolute;
     top: 0px;
     left: 400px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(5) {
     top: 400px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(6) {
     position: absolute;
     top: 0px;
     left: 500px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(6) {
     top: 500px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(7) {
     position: absolute;
     top: 0px;
     left: 600px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(7) {
     top: 600px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(8) {
     position: absolute;
     top: 100px;
     left: 0px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(8) {
     top: 700px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(9) {
     position: absolute;
     top: 100px;
     left: 100px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(9) {
     top: 800px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(10) {
     position: absolute;
     top: 100px;
     left: 200px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(10) {
     top: 900px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(11) {
     position: absolute;
     top: 100px;
     left: 300px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(11) {
     top: 1000px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(12) {
     position: absolute;
     top: 100px;
     left: 400px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(12) {
     top: 1100px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(13) {
     position: absolute;
     top: 100px;
     left: 500px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(13) {
     top: 1200px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(14) {
     position: absolute;
     top: 100px;
     left: 600px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(14) {
     top: 1300px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(15) {
     position: absolute;
     top: 200px;
     left: 0px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(15) {
     top: 1400px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(16) {
     position: absolute;
     top: 200px;
     left: 100px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(16) {
     top: 1500px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(17) {
     position: absolute;
     top: 200px;
     left: 200px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(17) {
     top: 1600px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(18) {
     position: absolute;
     top: 200px;
     left: 300px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(18) {
     top: 1700px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(19) {
     position: absolute;
     top: 200px;
     left: 400px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(19) {
     top: 1800px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(20) {
     position: absolute;
     top: 200px;
     left: 500px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(20) {
     top: 1900px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(21) {
     position: absolute;
     top: 200px;
     left: 600px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(21) {
     top: 2000px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(22) {
     position: absolute;
     top: 300px;
     left: 0px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(22) {
     top: 2100px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(23) {
     position: absolute;
     top: 300px;
     left: 100px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(23) {
     top: 2200px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(24) {
     position: absolute;
     top: 300px;
     left: 200px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(24) {
     top: 2300px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(25) {
     position: absolute;
     top: 300px;
     left: 300px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(25) {
     top: 2400px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(26) {
     position: absolute;
     top: 300px;
     left: 400px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(26) {
     top: 2500px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(27) {
     position: absolute;
     top: 300px;
     left: 500px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(27) {
     top: 2600px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(28) {
     position: absolute;
     top: 300px;
     left: 600px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(28) {
     top: 2700px;
     left: 0;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 779px) {
   .project-grid .cell:nth-child(29) {
     position: absolute;
     top: 400px;
     left: 0px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .project-grid .cell:nth-of-type(29) {
     top: 2800px;
     left: 0;

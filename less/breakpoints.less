@@ -1,0 +1,10 @@
+// main: default.less
+
+@mobile-max-width: 480;
+@tablet-max-width: 778; // Can display full 700px content width
+
+@mobile: e(%("only screen and (max-width: %dpx)", @mobile-max-width));
+@not-mobile: e(%("only screen and (min-width: %dpx)", (@mobile-max-width + 1)));
+
+@tablet-incl: e(%("only screen and (max-width: %dpx)", @tablet-max-width));
+@bigger-than-tablet: e(%("only screen and (min-width: %dpx)", (@tablet-max-width + 1)));

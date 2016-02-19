@@ -1,7 +1,5 @@
 // main: default.less
 
-@import "variables.less";
-
 .base-font(@font-size: @base-font-size, @line-height: 1em, @font-weight: @base-font-weight) {
     font: @font-weight @font-size/@line-height @base-font-family;
 }
@@ -14,28 +12,16 @@
     font-style: italic;
 }
 
-.mobile {
-    @media @not-mobile {
-        display: none;
-    }
-}
-
-.not-mobile {
-    @media @mobile {
-        display: none;
-    }
-}
-
 // Media query classes
-.media (@class, @hide-on) {
+.media(@class, @hide-on) {
     @{class} {
         @media @hide-on {
             display: none;
         }
     }
 }
-.media(".mobile", @not-mobile);
-.media(".not-mobile", @mobile);
+.media(e(".mobile"), @not-mobile);
+.media(e(".not-mobile"), @mobile);
 
 // Header/paragraph tag mixins
 .h2 {
@@ -56,7 +42,7 @@
         border-bottom: 1px solid @border-color;
         border-top: 1px solid @border-color;
         top: @font-size / 2 - @bar-spacing / 2;
-        width: 100%;
+        width: 1000%;
     }
 
     &::before {

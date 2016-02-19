@@ -1,5 +1,7 @@
 // out: ../css/default.css, sourcemap: true, compress: false
 
+@import "variables.less";
+@import "breakpoints.less";
 @import "mixins.less";
 
 // Common styles
@@ -32,16 +34,22 @@ object {
     width: 100%;
 }
 
+.header-title {
+    width: 160px;
+}
+
 .project-grid {
     @grid-size: 90px;
     @grid-spacing: 10px;
     @cell-padding: @base-font-size * 0.67;
+    @full-width-breakpoint: @tablet-incl;
+    @bigger-than-full-width-breakpoint: @bigger-than-tablet;
 
     position: relative;
     height: 3 * @grid-size + 4 * @grid-spacing;
 
     @num-projects: 16;
-    @media @mobile {
+    @media @full-width-breakpoint {
         height: @num-projects * @grid-size + (@num-projects + 1) * @grid-spacing;
     }
 
@@ -56,7 +64,7 @@ object {
         width: @grid-size - 2 * @cell-padding;
         height: @grid-size - 2 * @cell-padding;
 
-        @media @mobile {
+        @media @full-width-breakpoint {
             .cell-fullx1();
         }
     }
@@ -65,7 +73,7 @@ object {
         width: @grid-size * 2 + @grid-spacing - 2 * @cell-padding;
         height: @grid-size - 2 * @cell-padding;
 
-        @media @mobile {
+        @media @full-width-breakpoint {
             .cell-fullx1();
         }
     }
@@ -74,7 +82,7 @@ object {
         width: @grid-size - 2 * @cell-padding;
         height: @grid-size * 2 + @grid-spacing - 2 * @cell-padding;
 
-        @media @mobile {
+        @media @full-width-breakpoint {
             .cell-fullx1();
         }
     }
@@ -112,7 +120,7 @@ object {
         }
 
         .cell-positions (@index) when (@index < 30) {
-            @media @not-mobile {
+            @media @bigger-than-full-width-breakpoint {
                 &:nth-child(@{index}) {
                     position: absolute;
                     top: floor((@index - 1) / 7) * (@grid-size + @grid-spacing);
@@ -120,7 +128,7 @@ object {
                 }
             }
 
-            @media @mobile {
+            @media @full-width-breakpoint {
                 &:nth-of-type(@{index}) {
                     top: floor((@index - 1) * (@grid-size + @grid-spacing));
                     left: 0;
