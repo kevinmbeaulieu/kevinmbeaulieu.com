@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="css/index.css">
 
 <script src="libs/handlebars.runtime-v4.0.5.js"></script>
-<script src="js/partials.js"></script>
 <script src="js/templates.js"></script>
 
 <meta name="viewport" content="width=device-width" />
@@ -23,12 +22,13 @@
         /*
          * On page load
          */
-        var canvas = document.getElementById("intro-shapes");
+        var canvas = document.getElementById("shapes");
         var context = canvas.getContext('2d');
         var shapes = new Array();
         var shapeInitialDensity = 0.04;
         var spawnRate = 0.03;
         var startShapes = 0;
+        var didScroll = false;
 
         window.onload = function() {
             resize();
@@ -46,12 +46,6 @@
 			// Set up canvas
 			canvas.height = window.innerHeight * 0.8;
 		}
-
-        // function goToArticleAfterDelay(article) {
-        //     setTimeout(function() {
-        //         window.location.href = "http://www.kevinmbeaulieu.com/" + article;
-        //     }, 250);
-        // }
 
         function drawShape(h) {
             var size = (1 - h.depth) * 10 + 5;

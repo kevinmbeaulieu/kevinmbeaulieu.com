@@ -1,5 +1,3 @@
-// main: default.less
-
 .base-font(@font-size: @base-font-size, @line-height: 1em, @font-weight: @base-font-weight) {
     font: @font-weight @font-size/@line-height @base-font-family;
 }
@@ -12,18 +10,27 @@
     font-style: italic;
 }
 
-// Media query classes
-.media(@class, @hide-on) {
-    @{class} {
-        @media @hide-on {
-            display: none;
-        }
+.mobile {
+    @media @not-mobile {
+        display: none;
     }
 }
-.media(e(".mobile"), @not-mobile);
-.media(e(".not-mobile"), @mobile);
+
+.not-mobile {
+    @media @mobile {
+        display: none;
+    }
+}
 
 // Header/paragraph tag mixins
+.h1 {
+    @font-size: @base-font-size * 3;
+    .base-font(@font-size, @font-size * 1.1, 700);
+    color: @text-color;
+    .center-text();
+    margin-bottom: @base-font-size * 4;
+}
+
 .h2 {
     @font-size: @base-font-size * 3;
     .base-font(@font-size, @font-size * 1.1, 400);
@@ -57,7 +64,7 @@
 }
 
 .p {
-    @font-size: @base-font-size * 1.5;
+    @font-size: @base-font-size * 1;
     .base-font(@font-size, @font-size * 1.8);
     letter-spacing: @font-size * 0.1;
     color: @text-color;

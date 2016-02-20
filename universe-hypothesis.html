@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="css/default.css">
 
 <script src="libs/handlebars.runtime-v4.0.5.js"></script>
-<script src="js/partials.js"></script>
+
 <script src="js/templates.js"></script>
 
 <meta name="viewport" content="width=device-width" />
@@ -17,7 +17,12 @@
 
 <body>
     <script type="text/javascript">
-        document.body.innerHTML += Handlebars.templates['universe-hypothesis']();
+    var context = {
+        title: "Cognitive Hypothesis of the Universe",
+        text_left: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet lorem et arcu finibus, id feugiat lacus efficitur. Vestibulum sollicitudin dictum quam, in venenatis ligula sollicitudin et. Nulla egestas massa quis iaculis interdum. Fusce gravida commodo lorem eu interdum. Ut venenatis lectus in sem maximus, vulputate fermentum lorem efficitur. Ut sed est turpis. Nam finibus, elit ac ultricies fringilla, purus lectus rhoncus arcu, sit amet porta quam magna et eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque odio id mi eleifend ullamcorper. Sed non sapien euismod, pulvinar arcu eget, porta nibh. Etiam dignissim.",
+        text_right: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet lorem et arcu finibus, id feugiat lacus efficitur. Vestibulum sollicitudin dictum quam, in venenatis ligula sollicitudin et. Nam finibus, elit ac ultricies fringilla, purus lectus rhoncus arcu, sit amet porta quam magna et eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque odio id mi eleifend ullamcorper. Sed non sapien euismod, pulvinar arcu eget, porta nibh. Etiam dignissim, ipsum sit amet tristique faucibus, tellus justo consectetur purus, sed eleifend risus eros quis neque.</p><p>Aenean tortor tellus, elementum non facilisis non, dictum eget urna. In et varius nisl. Quisque non nibh non felis pharetra mattis. Sed fermentum lorem quis diam porta sodales. Nulla viverra est non arcu molestie iaculis. Nulla egestas massa quis iaculis interdum. Fusce gravida commodo lorem eu interdum. Ut venenatis lectus in sem maximus, vulputate fermentum lorem efficitur. Ut sed est turpis. Integer sed ante vitae eros placerat fringilla pulvinar quis eros. Nullam sit amet tincidunt libero. Vivamus accumsan nunc in ornare finibus."
+    };
+    document.body.innerHTML += Handlebars.templates['project'](context);
     </script>
 
 </body>
