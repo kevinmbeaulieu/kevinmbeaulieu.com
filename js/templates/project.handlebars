@@ -11,6 +11,14 @@
             {{#if image }}
                 <img src="/img/{{image}}" alt="{{image_alt}}">
             {{/if}}
+            {{#if video }}
+                <div class="iphone-4s-frame">
+                    <video width="160" height="240" loop autoplay>
+                        <source src="img/{{video}}" type="video/mp4">
+                        <img src="img/{{video_fallback}}" alt="{{video_fallback_alt}}">
+                    </video>
+                </div>
+            {{/if}}
             <p>{{{text_left}}}</p>
         </div>
         {{#if text_right }}

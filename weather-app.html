@@ -19,7 +19,10 @@
     <script type="text/javascript">
     var context = {
         title: "Weather App",
-        text_left: "Check back soon for details on the weather app I built for iOS!"
+        video: "weather-sunny.mp4",
+        video_fallback: "weather-sunny.png",
+        video_fallback_alt: "Weather app screencast",
+        text_right: "This iOS app was an exercise in using Adobe After Effects to create animations (in this case, the weather for the app's background). I designed compositions for sunny (shown above), cloudy, rainy, sunset, & nighttime conditions."
     };
     document.body.innerHTML += Handlebars.templates['project'](context);
     </script>

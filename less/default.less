@@ -71,7 +71,6 @@ object {
     width: 100%;
 }
 
-// Header
 header {
     .header-title {
         width: 160px;
@@ -124,7 +123,6 @@ header {
     }
 }
 
-// Footer
 footer {
     .triangle {
         width: 0;
@@ -138,7 +136,6 @@ footer {
     }
 }
 
-// Project Grid
 .project-grid {
     @grid-size: 90px;
     @grid-spacing: 10px;
@@ -239,5 +236,21 @@ footer {
             .cell-positions(@index + 1);
         }
         .cell-positions(1);
+    }
+}
+
+.iphone-4s-frame {
+    background-image: url(/img/iPhone4s.png);
+    background-repeat:no-repeat;
+    background-size: 235px 443px;
+    width: 235px;
+    height: 443px;
+    position: relative;
+    overflow:hidden;
+
+    > video {
+        position: absolute;
+        top: 71px;
+        left: 37px;
     }
 }
