@@ -7,7 +7,7 @@
     {{/if}}
 
     <section class="content">
-        <div>
+        <div {{#if text_right}}class="half-width"{{/if}}>
             {{#if image }}
                 <img src="/img/{{image}}" alt="{{image_alt}}">
             {{/if}}
@@ -22,7 +22,7 @@
             <p>{{{text_left}}}</p>
         </div>
         {{#if text_right }}
-            <div>
+            <div class="half-width">
                 <p>{{{text_right}}}</p>
             </div>
         {{/if}}
