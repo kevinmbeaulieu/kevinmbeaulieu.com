@@ -14,6 +14,10 @@
     position: relative;
     height: 80vh;
 
+    @media @mobile {
+        400px;
+    }
+
     &.hide {
         display: none;
     }
@@ -23,11 +27,15 @@
         top: 40vh;
         left: 0;
         width: 100%;
+
+        @media @mobile {
+            top: 200px;
+        }
     }
 }
 
 p {
-    @font-size: @base-font-size * 1.5;
+    @font-size: @base-font-size * 1.2;
     .base-font(@font-size, @font-size * 1.8);
     letter-spacing: @font-size * 0.1;
     margin-bottom: @font-size * 1.5;
