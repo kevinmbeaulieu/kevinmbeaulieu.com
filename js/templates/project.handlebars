@@ -12,18 +12,29 @@
                 <img src="/img/{{image}}" alt="{{image_alt}}">
             {{/if}}
             {{#if video }}
-                <div class="iphone-4s-frame">
-                    <video width="160" height="240" loop autoplay>
-                        <source src="img/{{video}}" type="video/mp4">
-                        <img src="img/{{video_fallback}}" alt="{{video_fallback_alt}}">
-                    </video>
-                </div>
+                {{#if video_frame }}
+                    <div class="iphone-4s-frame">
+                        <div class="video-responsive">
+                            <video loop autoplay>
+                                <source src="img/{{video}}" type="video/mp4">
+                                <img src="img/{{video_fallback}}" alt="{{video_fallback_alt}}">
+                            </video>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="video-responsive">
+                        <video loop autoplay>
+                            <source src="img/{{video}}" type="video/mp4">
+                            <img src="img/{{video_fallback}}" alt="{{video_fallback_alt}}">
+                        </video>
+                    </div>
+                {{/if}}
             {{/if}}
-            <p>{{{text_left}}}</p>
+            {{{text_left}}}
         </div>
         {{#if text_right }}
             <div class="half-width">
-                <p>{{{text_right}}}</p>
+                {{{text_right}}}
             </div>
         {{/if}}
     </section>

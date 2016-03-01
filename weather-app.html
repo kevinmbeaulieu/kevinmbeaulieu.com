@@ -20,9 +20,13 @@
     var context = {
         title: "Weather App",
         video: "weather.mp4",
+        video_frame: true,
         video_fallback: "weather-sunny.png",
         video_fallback_alt: "Weather app screencast",
-        text_right: "This iOS app was an exercise in using Adobe After Effects to create animations (in this case, the weather for the app's background). I designed compositions for sunny (shown above), cloudy, rainy, sunset, & nighttime conditions."
+        text_right: "<p>This iOS app was an exercise in using Adobe After\
+            Effects to create animations (in this case, the weather for the\
+            app's background). I designed compositions for sunny (shown above),\
+            cloudy, rainy, sunset, & nighttime conditions.</p>"
     };
     document.body.innerHTML += Handlebars.templates['project'](context);
     </script>

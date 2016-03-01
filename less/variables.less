@@ -1,9 +1,12 @@
 // main: default.less
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Quattrocento:400);
 
-@base-font-family: Lato, Helvetica, sans-serif;
-@base-font-weight: 300;
+@base-heading-font-family: Lato, Helvetica, sans-serif;
+@base-heading-font-weight: 300;
+@base-paragraph-font-family: Quattrocento, serif;
+@base-paragraph-font-weight: 400;
 @base-font-size: 14px;
 
 @text-color: #4a4a4a;
@@ -11,4 +14,7 @@
 @project-grid-cell-bg-color: #e1e1e1;
 @drop-shadow-color: rgba(0, 0, 0, 0.3);
 
+@drop-shadow-small: 0 1px 1px @drop-shadow-color;
 @drop-shadow: 0 2px 2px @drop-shadow-color;
+
+@body-width: 700px; // If changed, also update canvas width in index.handlebars

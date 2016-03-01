@@ -4,7 +4,7 @@
 
 // Common styles
 body {
-    width: 700px;
+    width: @body-width;
     max-width: 90vw;
     margin: 0 auto;
 }
@@ -17,15 +17,19 @@ h2 {
     .h2();
 }
 
+h3 {
+    .h3();
+}
+
 p {
     .p();
 }
 
 .subtitle {
     @font-size: @base-font-size * 1.1;
-    .base-font(@font-size, @font-size, 400);
+    .base-heading-font(@font-size, @font-size, 400);
     color: @text-color;
-    .center-text();
+    text-align: center;
     margin-top: -1 * @base-font-size * 3.7;
     margin-bottom: @base-font-size * 4;
 }
@@ -37,7 +41,7 @@ a {
 section {
     overflow: hidden;
     margin-bottom: @base-font-size * 3;
-    .center-text();
+    text-align: center;
 
     &.content {
         display: flex;
@@ -67,6 +71,57 @@ section {
                 padding-top: 0;
             }
         }
+
+        .video-responsive {
+            position: relative;
+            padding-bottom: calc(133% - 2px);
+            height: 0;
+            overflow: hidden;
+            width: 333px;
+            margin: 0 auto;
+
+            @media @smaller-than-tablet-incl {
+                width: 160px;
+            }
+
+            > video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .iphone-4s-frame {
+            background-image: url(/img/iPhone4s.png);
+            background-repeat:no-repeat;
+            background-size: contain;
+            width: 235px;
+            height: 480px;
+            margin: 0 auto;
+            position: relative;
+            overflow:hidden;
+
+            > .video-responsive {
+                position: absolute;
+                top: 43px;
+                left: 32px;
+                width: 170px;
+            }
+
+            @media @smaller-than-tablet-incl {
+                width: 160px;
+                height: 327px;
+
+                > .video-responsive {
+                    top: 29px;
+                    left: 22px;
+                    width: 116px;
+                }
+            }
+        }
+
     }
 }
 
@@ -89,18 +144,19 @@ header {
 
         justify-content: space-between;
 
-        @font-size: @base-font-size * 0.8;
-        .base-font(@font-size, @font-size * 1.1);
-        letter-spacing: @font-size * 0.16;
-        color: @text-color;
-        text-transform: uppercase;
         margin-top: -@base-font-size / 2;
 
+        @font-size: @base-font-size * 0.8;
         @media @not-mobile {
             padding: 0 @font-size * 1.5;
         }
 
-        h3 {
+        p {
+            .base-heading-font(@font-size, @font-size * 1.1);
+            letter-spacing: @font-size * 0.16;
+            color: @text-color;
+            text-transform: uppercase;
+
             margin-top: 0;
             font-weight: 400;
             flex-grow: 1;
@@ -141,7 +197,90 @@ footer {
     }
 }
 
-.project-grid {
+.projects {
+    @num-categories: 4;
+    @num-projects-per-category: 3;
+
+    @grid-spacing: @base-font-size * 0.5;
+    @project-padding: @base-font-size * 0.67;
+
+    @project-height: @base-font-size * 5;
+
+    @category-heading-font-size: @base-font-size;
+    @category-heading-margin: @base-font-size * 1;
+
+    @category-width: (@grid-width - (@num-categories - 1) * @grid-spacing)
+        / @num-categories;
+    @category-height: @num-projects-per-category * @project-height
+        + (@num-projects-per-category - 1) * @grid-spacing
+        + @category-heading-font-size + 2 * @category-heading-margin
+        + 2 * 2px; // Allow room for drop shadow on bottom row
+
+    @grid-width: @body-width;
+    @grid-height: @category-height;
+
+    width: @grid-width;
+    height: @grid-height;
+
+    .project-category {
+        width: @category-width;
+        height: @category-height;
+
+        float: left;
+        margin-right: @grid-spacing;
+        &:last-child {
+            margin-right: 0;
+        }
+
+        h4 {
+            .base-heading-font(@category-heading-font-size,
+                @category-heading-font-size, 700);
+            margin: @category-heading-margin 0;
+            color: @text-color;
+            text-align: center;
+        }
+
+        .project {
+            @border-width: 1px;
+
+            width: @category-width - 2 * (@project-padding + @border-width);
+            height: @project-height - 2 * (@project-padding + @border-width);
+            padding: @project-padding;
+            border: @border-width solid @border-color;
+
+            margin-bottom: @grid-spacing;
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            // Fixed size, regardless of base font size
+            // to fit fixed size grid cells
+            @font-size: 13px;
+            .base-heading-font(@font-size, @font-size * 1.1, 400);
+            color: @text-color;
+            letter-spacing: @font-size * 0.044;
+
+            background-color: @project-grid-cell-bg-color;
+            box-shadow: @drop-shadow-small;
+            &:hover {
+                background-color: darken(@project-grid-cell-bg-color, 6%);
+                box-shadow: @drop-shadow;
+            }
+
+            a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                text-align: left;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/*.project-grid {
     @grid-size: 90px;
     @grid-spacing: 10px;
     @cell-padding: @base-font-size * 0.67;
@@ -204,7 +343,7 @@ footer {
         // Fixed size, regardless of base font size
         // to fit fixed size grid cells
         @font-size: 13px;
-        .base-font(@font-size, @font-size * 1.1, 300);
+        .base-heading-font(@font-size, @font-size * 1.1, 400);
         color: @text-color;
         letter-spacing: @font-size * 0.044;
 
@@ -245,19 +384,4 @@ footer {
         .cell-positions(1);
     }
 }
-
-.iphone-4s-frame {
-    background-image: url(/img/iPhone4s.png);
-    background-repeat:no-repeat;
-    background-size: 235px 443px;
-    width: 235px;
-    height: 443px;
-    position: relative;
-    overflow:hidden;
-
-    > video {
-        position: absolute;
-        top: 71px;
-        left: 37px;
-    }
-}
+*/

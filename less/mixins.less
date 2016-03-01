@@ -1,9 +1,9 @@
-.base-font(@font-size: @base-font-size, @line-height: 1em, @font-weight: @base-font-weight) {
-    font: @font-weight @font-size/@line-height @base-font-family;
+.base-heading-font(@font-size: @base-font-size, @line-height: 1em, @font-weight: @base-heading-font-weight) {
+    font: @font-weight @font-size/@line-height @base-heading-font-family;
 }
 
-.center-text {
-    text-align: center;
+.base-paragraph-font(@font-size: @base-font-size, @line-height: 1em, @font-weight: @base-paragraph-font-weight) {
+    font: @font-weight @font-size/@line-height @base-paragraph-font-family;
 }
 
 .italics {
@@ -25,15 +25,15 @@
 // Header/paragraph tag mixins
 .h1 {
     @font-size: @base-font-size * 2.7;
-    .base-font(@font-size, @font-size * 1.1, 700);
+    .base-heading-font(@font-size, @font-size * 1.1, 700);
     color: @text-color;
-    .center-text();
+    text-align: center;
     margin-bottom: @base-font-size * 4;
 }
 
 .h2 {
     @font-size: @base-font-size * 2.7;
-    .base-font(@font-size, @font-size * 1.1, 400);
+    .base-heading-font(@font-size, @font-size * 1.1, 400);
     letter-spacing: @font-size * 0.16;
     color: @text-color;
     text-transform: uppercase;
@@ -63,12 +63,42 @@
     }
 }
 
+.h3 {
+    @font-size: @base-font-size * 2;
+    .base-heading-font(@font-size, @font-size * 1.1, 400);
+    letter-spacing: @font-size * 0.16;
+    color: @text-color;
+    text-transform: uppercase;
+
+    display: inline-block;
+    position: relative;
+
+    &::before, &::after {
+        @bar-spacing: @font-size * 0.14;
+        content: "";
+        position: absolute;
+        border-top: 1px solid @border-color;
+        top: @font-size / 2;
+        width: 1000%;
+    }
+
+    &::before {
+        right: 100%;
+        margin-right: @font-size * 0.4;
+    }
+
+    &::after {
+        left: 100%;
+        margin-left: @font-size * 0.4;
+    }
+}
+
 .p {
     @font-size: @base-font-size * 1;
-    .base-font(@font-size, @font-size * 1.8, 400);
-    letter-spacing: @font-size * 0.1;
+    .base-paragraph-font(@font-size, @font-size * 1.8);
+    letter-spacing: @font-size * 0.007;
     color: @text-color;
     margin-top: 0;
     margin-bottom: @font-size * 1.5;
-    .center-text();
+    text-align: justify;
 }

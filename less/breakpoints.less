@@ -1,8 +1,10 @@
 @mobile-max-width: 480;
-@tablet-max-width: 778; // Can display full 700px content width
+@tablet-max-width: (@body-width + 78px); // Can display full content width
 
 @mobile: e(%("only screen and (max-width: %dpx)", @mobile-max-width));
 @not-mobile: e(%("only screen and (min-width: %dpx)", (@mobile-max-width + 1)));
 
-@smaller-than-tablet-incl: e(%("only screen and (max-width: %dpx)", @tablet-max-width));
-@bigger-than-tablet-excl: e(%("only screen and (min-width: %dpx)", (@tablet-max-width + 1)));
+@smaller-than-tablet-incl: e(%("only screen and (max-width: %d)",
+    @tablet-max-width));
+@bigger-than-tablet-excl: e(%("only screen and (min-width: %d)",
+    (@tablet-max-width + 1)));
