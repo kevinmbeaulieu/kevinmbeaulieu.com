@@ -218,17 +218,36 @@ footer {
 
     @grid-width: @body-width;
     @grid-height: @category-height;
+    @condensed-grid-height: @num-categories * @category-height;
+
+    @condensed-breakpoint: @smaller-than-tablet-incl;
+
+    display: flex;
+    justify-content: space-between;
+
+    @media @condensed-breakpoint {
+        flex-wrap: wrap;
+    }
 
     width: @grid-width;
     height: @grid-height;
+    @media @condensed-breakpoint {
+        width: 100%;
+        height: @condensed-grid-height;
+    }
 
     .project-category {
         width: @category-width;
         height: @category-height;
+        @media @condensed-breakpoint {
+            width: 100%;
+        }
 
-        float: left;
         margin-right: @grid-spacing;
         &:last-child {
+            margin-right: 0;
+        }
+        @media @condensed-breakpoint {
             margin-right: 0;
         }
 
@@ -245,6 +264,10 @@ footer {
 
             width: @category-width - 2 * (@project-padding + @border-width);
             height: @project-height - 2 * (@project-padding + @border-width);
+            @media @condensed-breakpoint {
+                width: calc(~"100% - 2 * (@{project-padding} + @{border-width})");
+            }
+
             padding: @project-padding;
             border: @border-width solid @border-color;
 
