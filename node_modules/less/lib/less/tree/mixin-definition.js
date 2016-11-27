@@ -27,6 +27,7 @@ var Definition = function (name, params, rules, condition, variadic, frames, vis
     this.optionalParameters = optionalParameters;
     this.frames = frames;
     this.copyVisibilityInfo(visibilityInfo);
+    this.allowRoot = true;
 };
 Definition.prototype = new Ruleset();
 Definition.prototype.type = "MixinDefinition";
@@ -127,7 +128,7 @@ Definition.prototype.makeImportant = function() {
             return r;
         }
     });
-    var result = new Definition (this.name, this.params, rules, this.condition, this.variadic, this.frames);
+    var result = new Definition(this.name, this.params, rules, this.condition, this.variadic, this.frames);
     return result;
 };
 Definition.prototype.eval = function (context) {

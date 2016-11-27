@@ -12,6 +12,12 @@ this["Handlebars"]["templates"]["404"] = Handlebars.template({"compiler":[7,">= 
     + "\n"
     + ((stack1 = container.invokePartial(partials.footer,depth0,{"name":"footer","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"usePartial":true,"useData":true});
+Handlebars.registerPartial("header", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = container.invokePartial(partials.top,depth0,{"name":"top","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "<section id=\"header-container\">\n    <header>\n        <h2>\n            <object class=\"header-title\" type=\"image/svg+xml\" data=\"img/title-mobile.svg\">\n                <img class=\"header-title\" src=\"img/title-mobile.png\" alt=\"Kevin Beaulieu\" />\n            </object>\n        </h2>\n        <div class=\"links\">\n            <p><a href=\"index.html\">\n                    Home\n            </a></p>\n            <p><a href=\"index.html#mystory\">\n                My Story\n            </a></p>\n            <div class=\"spacer\"></div>\n            <p><a href=\"#mywork\">\n                My Work\n            </a></p>\n            <p><a href=\"index.html#letstalk\">\n                Let's Talk!\n            </a></p>\n        </div>\n    </header>\n</section>\n";
+},"usePartial":true,"useData":true}))
 this["Handlebars"]["templates"]["index"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -21,12 +27,6 @@ this["Handlebars"]["templates"]["index"] = Handlebars.template({"compiler":[7,">
     + "\n<section>\n    <h2><a name=\"letstalk\">\n        Let's Talk!\n    </a></h2>\n    <p>\n        <a href=\"https://www.linkedin.com/in/kevinmbeaulieu\" target=\"_blank\">LinkedIn</a><br/>\n        <a href=\"mailto:kevinmbeaulieu@gmail.com?Subject=Hi!\" target=\"_top\">kevinmbeaulieu@gmail.com</a>\n    </p>\n</section>\n\n"
     + ((stack1 = container.invokePartial(partials.footer,depth0,{"name":"footer","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"usePartial":true,"useData":true});
-Handlebars.registerPartial("header", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = container.invokePartial(partials.top,depth0,{"name":"top","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "<section id=\"header-container\">\n    <header>\n        <h2>\n            <object class=\"header-title\" type=\"image/svg+xml\" data=\"img/title-mobile.svg\">\n                <img class=\"header-title\" src=\"img/title-mobile.png\" alt=\"Kevin Beaulieu\" />\n            </object>\n        </h2>\n        <div class=\"links\">\n            <p><a href=\"index.html\">\n                    Home\n            </a></p>\n            <p><a href=\"index.html#mystory\">\n                My Story\n            </a></p>\n            <div class=\"spacer\"></div>\n            <p><a href=\"#mywork\">\n                My Work\n            </a></p>\n            <p><a href=\"index.html#letstalk\">\n                Let's Talk!\n            </a></p>\n        </div>\n    </header>\n</section>\n";
-},"usePartial":true,"useData":true}))
 this["Handlebars"]["templates"]["project"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper;
 
