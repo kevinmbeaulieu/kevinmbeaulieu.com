@@ -1,3 +1,4 @@
 .DS_Store
 .ftpconfig
 private/
+node_modules/
