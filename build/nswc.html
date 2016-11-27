@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<script src="libs/handlebars.runtime-v4.0.5.js"></script>
+
+<script src="js/templates.js"></script>
+<script src="js/smoothscroll.js"></script>
+
+<meta name="viewport" content="width=device-width" />
+
+<title>Naval Surface Warfare Center</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var context = {
+        title: "Naval Surface Warfare Center",
+        subtitle: "High School Intern",
+        text_left: "<p>I spent the summer after 12th grade as an intern for the\
+            <a href='http://www.navsea.navy.mil/Home/WarfareCenters/NSWCCarderock.aspx'\
+            target='_blank'>Naval Surface Warfare Center, Carderock\
+            Division</a> in West Bethesda, MD. During my internship, I studied\
+            a suite of software tools developed for weapons effects\
+            analysis, and I redesigned the suite's documentation to streamline\
+            onboarding of new employees in the future.</p>"
+    };
+    document.body.innerHTML += Handlebars.templates['project'](context);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<script src="libs/handlebars.runtime-v4.0.5.js"></script>
+
+<script src="js/templates.js"></script>
+<script src="js/smoothscroll.js"></script>
+
+<meta name="viewport" content="width=device-width" />
+
+<title>re:member App</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var context = {
+        title: "re:member iOS App",
+        image: "remember.png",
+        image_alt: "re:member screenshot",
+        text_right: "<p>re:member is a memory game with two modes: matching\
+            colors and matching sounds. As one of my earliest iOS apps, my\
+            focus with this project was to design a simple game with a\
+            beautiful user interface. I wanted to create an app that made the\
+            user not only enjoy the game, but also just the experience of\
+            interacting with the app.</p>\
+            <p>Finding a matching pair of tiles reveals a colorful particle\
+            animation underneath. Navigating between menu screens within\
+            re:member triggers a smooth, sliding animations which define a\
+            clear spatial relationship between the views.</p>"
+    };
+    document.body.innerHTML += Handlebars.templates['project'](context);
+    </script>
+
+</body>
+
+</html>

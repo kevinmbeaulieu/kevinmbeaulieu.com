@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<script src="libs/handlebars.runtime-v4.0.5.js"></script>
+
+<script src="js/templates.js"></script>
+<script src="js/smoothscroll.js"></script>
+
+<meta name="viewport" content="width=device-width" />
+
+<title>Flint</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var context = {
+        title: "Flint",
+        subtitle: "Mentorship Program",
+        text_left: "<p>Flint seeks to bridge academic and experiential\
+            education by connecting students with established entrepreneurs who\
+            will provide them with both guidance and real-world challenges. At\
+            its core, Flint is a mentorship program between Cornell students\
+            and experienced professionals and/or Cornell alumni. Flint is\
+            unique and highly accessible in that it provides a convenient,\
+            interactive online platform upon which students and employers can\
+            communicate with each other.</p>\
+            <p>As Software Lead of Flint, I lead the development of Flint's\
+            website. The website is the main portal through which students and\
+            mentors find and connect with one another. In addition to managing\
+            the team, I focus primarily on design and front-end programming for\
+            the website.</p>"
+    };
+    document.body.innerHTML += Handlebars.templates['project'](context);
+    </script>
+
+</body>
+
+</html>

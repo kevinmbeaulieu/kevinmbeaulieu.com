@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<script src="libs/handlebars.runtime-v4.0.5.js"></script>
+
+<script src="js/templates.js"></script>
+<script src="js/smoothscroll.js"></script>
+
+<meta name="viewport" content="width=device-width" />
+
+<title>3D Tetris</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var context = {
+        title: "3D Tetris",
+        image: "3d-tetris-01.png",
+        image_alt: "3D Tetris screenshot",
+        text_left: "<p>3D Tetris is a game I built in high school to learn how\
+            to use the <a href='https://unity3d.com' target='_blank'>Unity</a>\
+            game engine.</p>"
+    };
+    document.body.innerHTML += Handlebars.templates['project'](context);
+    </script>
+
+</body>
+
+</html>

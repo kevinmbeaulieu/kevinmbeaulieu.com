@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<script src="libs/handlebars.runtime-v4.0.5.js"></script>
+
+<script src="js/templates.js"></script>
+<script src="js/smoothscroll.js"></script>
+
+<meta name="viewport" content="width=device-width" />
+
+<title>Electrode App</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var context = {
+        title: "Electrode App",
+        image: "electrode.jpg",
+        image_alt: "Electrode screenshot",
+        text_right: "<p>Electrode is an iOS game I created in high school. It's\
+            a 2d physics-based game in which the user must guide charged\
+            particles to a target. Touching the screen creates a positive field\
+            around your finger, attracting negative particles and repeling\
+            positive ones.</p>\
+            <p>I had a few goals in mind with this project. My main focus was\
+            on the visual aspects of the game. I wanted everything from the\
+            field your finger creates to the background to be built upon\
+            beautiful particle effects. I had first discovered particle effects\
+            when developing re:member, but the effects were not incorporated\
+            into that game nearly as tightly as in Electrode.</p>"
+    };
+    document.body.innerHTML += Handlebars.templates['project'](context);
+    </script>
+
+</body>
+
+</html>

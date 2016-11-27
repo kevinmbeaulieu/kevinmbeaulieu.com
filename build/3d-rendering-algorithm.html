@@ -1,0 +1,129 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<script src="libs/handlebars.runtime-v4.0.5.js"></script>
+
+<script src="js/templates.js"></script>
+<script src="js/smoothscroll.js"></script>
+
+<meta name="viewport" content="width=device-width" />
+
+<title>3D Graphics Rendering Algorithm</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var context = {
+        title: "Big Cache Rendering",
+        subtitle: "High Quality 3D Graphics Rendering in Real Time",
+        text_left: "<h3>Introduction</h3>\
+            <p>3D graphics are used in\
+            everything from Pixar movies to\
+            video games and, more recently, virtual reality. For all these\
+            applications, of course, 3D models must be put through rendering\
+            algorithms to produce what we see on the screen.\
+            Some algorithms\
+            spend hours making extremely complex mathematical calculations to\
+            create realistic results, while others cut corners\
+            so the rendering\
+            can be done in real time. Pixar (and other animated film companies)\
+            fall in the first category, spending hours (or even days!)\
+            rendering individual frames. But for games and VR that require\
+            dynamic, real-time rendering, quality must be sacrificed for speed.\
+            This is what inspired me to develop the Big Cache\
+            Rendering technique.</p>\
+            <p>Think about a video game played by thousands or millions of\
+            users. There are some elements in the game that are constantly\
+            changing, such as the position of the player, but a\
+            large portion\
+            of the scene is made up of static scenery and objects\
+            . Yet we still\
+            force users' devices to render these objects in real time every\
+            single time they load the game. What\
+            if instead we just had to\
+            render the scene once- for all users?</p>\
+            <p>Imagine the following scenario: A game design company renders\
+            every scene in their hottest new game from every possible angle,\
+            resulting in millions of rendered frames which they store in a\
+            data center for a relatively small cost. When users load the game\
+            on their phones, rather than rendering the entire scene in real\
+            time, the game instead determines which of these millions of frames\
+            should be displayed, and simply downloads that one as an image to\
+            be shown on-screen. The creators of the game do not have to\
+            compromise at all on quality, because the rendering is being done\
+            beforehand. Further, users don't need expensive hardware to run\
+            the game; all they need is an Internet connection.</p>\
+            <h3>Challenges</h3>\
+            <p>There are a few obstacles with this approach to rendering:\
+            Games and VR applications are dynamic; the characters and objects\
+            in the scene are constantly moving around, and there wouldn't be\
+            enough space in all the data centers in the world to store a frame\
+            for every possible combination of every object in a game.</p>\
+            <p>Suppose we divide the objects in the scene into two groups:\
+            static objects that never move, and dynamic objects that do. Rather\
+            than pre-render the entire scene, we'll only pre-render the static\
+            objects, since those are the ones that will look the same to all\
+            users all the time.</p>\
+            <p>What about the dynamic objects? Since we can't pre-render those,\
+            we're forced to render those in real time. But since they only\
+            comprise a small part of the scene, we actually don't have a\
+            probelem doing so.</p>\
+            <p>Now here's the fun part: We now have two partial frames: one\
+            containing all the static objects, and one containing the dynamic\
+            objects. The challenge becomes how do we combine these images to\
+            provide a single frame to display on-screen?</p>\
+            <p>Let's consider a few options:<br/>The naive approach would be to\
+            simply overlay the dynamic frame on top of the pre-rendered frame.\
+            Now obviously this won't work because some of the dynamic objects\
+            will inevitably be behind static objects, and should therefore be\
+            hidden from view. But it gives an idea for one part of our\
+            solution: if we store a depth buffer along with each pre-rendered\
+            frame, we can know the depth of each pixel in the pre-rendered\
+            frame. With this information, we can combine the dynamic and static\
+            frames pixel-by-pixel, always taking the color from the frame\
+            which is closer to the camera at that pixel.</p>\
+            <p>There's another problem though: the rendering algorithm we're\
+            running on each of the static and dynamic scenes still isn't\
+            capturing shadows or reflections between static and dynamic objects\
+            (e.g., shadow cast by a static object on a dynamic object, or a\
+            reflection of a dynamic object on a static object). But there\
+            is yet hope for us still!</p>\
+            <p>What is a shadow really in computer graphics? Simply a blocking\
+            of a proportion of the light on a certain surface. So therefore if\
+            for every point in space we store the amount of shade \"cast\" by\
+            static objects, then we can factor this into our calculation of the\
+            color of dynamic objects. The same goes for the reverse: if we\
+            store the position in space of every pixel in our static frame,\
+            then after rendering our dynamic frame we can update the colors of\
+            the static frame's pixels based on the shade \"cast\" by dynamic\
+            objects.</p>\
+            <h3>Tradeoffs</h3>\
+            <p>1. The obvious consequence of this rendering algorithm is that\
+            it requires a large amount of storage space. Even at modern-day\
+            prices, this is still a limiting factor. Even a small scene will\
+            require terabytes of space.</p>\
+            <p>2. The same trategy described for handling shadows cannot be\
+            used to handle reflections between static and dynamic objects.\
+            So this algorithm (until a better solution is found) makes the\
+            concession that such reflections will not be rendered. For most\
+            cases, however, reflections do not have to be physically accurate\
+            in order to look realistic. With enough objects in the scene, users\
+            typically won't notice if one object doesn't show up in the\
+            reflection off a metallic surface.</p>\
+            <p>3. A majority of the scene must be static in order to achieve\
+            any practical benefit from this algorithm. As the proportion of\
+            dynamic objects increases, this algorithm's performance approaches\
+            that of the underlying rendering algorithm being used to render\
+            the static and dynamic frames.</p>"
+    };
+    document.body.innerHTML += Handlebars.templates['project'](context);
+    </script>
+
+</body>
+
+</html>

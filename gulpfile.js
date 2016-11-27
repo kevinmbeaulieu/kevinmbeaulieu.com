@@ -10,9 +10,10 @@ var declare = require('gulp-declare');
 var concat = require('gulp-concat');
 var merge = require('merge-stream');
 var path = require('path');
+var ftp = require('vinyl-ftp');
 
-gulp.task('build', ['less', 'templates']);
-gulp.task('default', ['build', 'watch']);
+gulp.task('deploy', ['build', 'upload']);
+gulp.task('default', ['less', 'templates', 'build', 'watch']);
 
 gulp.task('watch', function() {
     gulp.watch('less/*.less', ['less']);
@@ -31,16 +32,11 @@ gulp.task('watch', function() {
 });
 
 gulp.task('less', function() {
-    gulp.src('less/default.less')
+    gulp.src(['less/default.less', 'less/index.less'])
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('css'));
-    gulp.src('less/index.less')
-        .pipe(sourcemaps.init())
-        .pipe(less())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('build/css'));
 });
 
 gulp.task('templates', function() {
@@ -71,5 +67,30 @@ gulp.task('templates', function() {
     // Output both the partials and the templates as build/js/templates.js
     return merge(partials, templates)
         .pipe(concat('templates.js'))
-        .pipe(gulp.dest('js/'));
+        .pipe(gulp.dest('build/js'));
+});
+
+gulp.task('build', ['less', 'templates'], function() {
+    gulp.src(['*.html', 'resume.pdf'])
+        .pipe(gulp.dest('build'));
+    gulp.src('img/**/*')
+        .pipe(gulp.dest('build/img'));
+    gulp.src('js/*.js')
+        .pipe(gulp.dest('build/js'));
+    gulp.src('libs/**/*')
+        .pipe(gulp.dest('build/libs'));
+});
+
+gulp.task('upload', function() {
+    var conn = ftp.create({
+        host: 'ftp.kevinmbeaulieu.com',
+        user: 'html@kevinmbeaulieu.com',
+        password: 'FrztzYk22Ufl',
+    });
+
+    return gulp.src('build/**/*', {
+            buffer: false
+        })
+        .pipe(conn.newer('/'))
+        .pipe(conn.dest('/'));
 });
