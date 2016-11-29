@@ -22,11 +22,11 @@ gulp.task('watch', function() {
 
     browserSync({
         server: {
-            baseDir: '.'
+            baseDir: 'build'
         },
         browser: 'safari',
         injectChanges: false,
-        files: ['./**/*.*'],
+        files: ['build/**/*.*'],
         notify: false
     });
 });
