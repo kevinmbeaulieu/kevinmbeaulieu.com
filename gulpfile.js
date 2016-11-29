@@ -82,10 +82,12 @@ gulp.task('build', ['less', 'templates'], function() {
 });
 
 gulp.task('upload', function() {
+    const config = require('./ftpconfig.json');
+
     var conn = ftp.create({
-        host: 'ftp.kevinmbeaulieu.com',
-        user: 'html@kevinmbeaulieu.com',
-        password: 'FrztzYk22Ufl',
+        host: config.host,
+        user: config.user,
+        password: config.password,
     });
 
     return gulp.src('build/**/*', {
