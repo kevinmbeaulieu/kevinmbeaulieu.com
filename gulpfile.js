@@ -12,7 +12,6 @@ var merge = require('merge-stream');
 var path = require('path');
 var ftp = require('vinyl-ftp');
 
-gulp.task('deploy', ['build', 'upload']);
 gulp.task('default', ['build', 'watch']);
 
 gulp.task('build', [
