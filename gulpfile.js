@@ -13,11 +13,25 @@ var path = require('path');
 var ftp = require('vinyl-ftp');
 
 gulp.task('deploy', ['build', 'upload']);
-gulp.task('default', ['less', 'templates', 'build', 'watch']);
+gulp.task('default', ['build', 'watch']);
+
+gulp.task('build', [
+    'less',
+    'templates',
+    'build-html',
+    'build-resume',
+    'build-img',
+    'build-js',
+    'build-libs'
+]);
 
 gulp.task('watch', function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('js/**/*.handlebars', ['templates']);
+    gulp.watch('*.html', ['build-html']);
+    gulp.watch('resume.pdf', ['build-resume']);
+    gulp.watch('img/**/*', ['build-img']);
+    gulp.watch('libs/**/*', ['build-libs']);
     gulp.watch('gulpfile.js', process.exit);
 
     browserSync({
@@ -70,13 +84,27 @@ gulp.task('templates', function() {
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('build', ['less', 'templates'], function() {
-    gulp.src(['*.html', 'resume.pdf'])
+gulp.task('build-html', function() {
+    gulp.src('*.html')
         .pipe(gulp.dest('build'));
+});
+
+gulp.task('build-resume', function() {
+    gulp.src('resume.pdf')
+        .pipe(gulp.dest('build'));
+});
+
+gulp.task('build-img', function() {
     gulp.src('img/**/*')
         .pipe(gulp.dest('build/img'));
+});
+
+gulp.task('build-js', function() {
     gulp.src('js/*.js')
         .pipe(gulp.dest('build/js'));
+});
+
+gulp.task('build-libs', function() {
     gulp.src('libs/**/*')
         .pipe(gulp.dest('build/libs'));
 });
