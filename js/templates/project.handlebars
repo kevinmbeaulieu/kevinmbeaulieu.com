@@ -8,8 +8,15 @@
 
     <section class="content">
         <div {{#if text_right}}class="half-width"{{/if}}>
-            {{#if image }}
-                <img src="/img/{{image}}" alt="{{image_alt}}">
+            {{#if images }}
+                {{#each images }}
+                    <div class="image">
+                        <img src="/img/{{this.file}}" alt="{{this.alt_text}}">
+                        {{#if this.caption }}
+                            <div class="caption">{{this.caption}}</div>
+                        {{/if}}
+                    </div>
+                {{/each}}
             {{/if}}
             {{#if video }}
                 {{#if video_frame }}

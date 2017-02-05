@@ -21,16 +21,20 @@
     var context = {
         title: "CleanMenuBar (macOS)",
         subtitle: "SIMBL plugin to hide menu bar icons for third-party apps on macOS",
-        image: "cleanmenubar.png",
-        image_alt: "CleanMenuBar preview",
+        images: [
+            {
+                file: "cleanmenubar.png",
+                alt_text: "CleanMenuBar preview"
+            }
+        ],
         text_left: "<p><a href='https://www.github.com/kevinmbeaulieu/CleanMenuBar'\
             target='_blank'>CleanMenuBar</a> is a\
             <a href='http://www.culater.net/software/SIMBL/SIMBL.php'\
             target='_blank'>SIMBL</a> plugin for macOS which\
             enables you to clean up your cluttered menu bar by specifying\
-            third-party apps to hide from the menu bar (like an open-source\
-            version of <a href='https://www.macbartender.com' target='_blank'\
-            >Bartender</a>).</p>"
+            third-party apps to hide from the menu bar (essentially an\
+            open-source version of <a href='https://www.macbartender.com'\
+            target='_blank'>Bartender</a>).</p>"
     };
     document.body.innerHTML += Handlebars.templates['project'](context);
     </script>

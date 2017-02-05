@@ -12,23 +12,27 @@
 
 <meta name="viewport" content="width=device-width" />
 
-<title>3D Tetris</title>
+<title>Illustrations</title>
 
 </head>
 
 <body>
     <script type="text/javascript">
     var context = {
-        title: "3D Tetris",
+        title: "Vector Illustrations",
+        subtitle: "Made in Sketch",
         images: [
             {
-                file: "3d-tetris-01.png",
-                alt_text: "3D Tetris screenshot"
+                file: "macintosh.png",
+                alt_text: "Original Macintosh computer",
+                caption: "Original Macintosh computer"
+            },
+            {
+                file: "macbook.png",
+                alt_text: "MacBook",
+                caption: "MacBook"
             }
-        ],
-        text_left: "<p>3D Tetris is a game I built in high school to learn how\
-            to use the <a href='https://unity3d.com' target='_blank'>Unity</a>\
-            game engine.</p>"
+        ]
     };
     document.body.innerHTML += Handlebars.templates['project'](context);
     </script>
