@@ -1,3 +1,6 @@
+Handlebars.registerPartial("footer", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<footer>\n    <a class=\"scroll\" data-speed=\"100\" href=\"#top\">\n        <div class=\"triangle\"></div>\n    </a>\n</footer>\n";
+},"useData":true}))
 this["Handlebars"] = this["Handlebars"] || {};
 this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
 this["Handlebars"]["templates"]["404"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -9,9 +12,6 @@ this["Handlebars"]["templates"]["404"] = Handlebars.template({"compiler":[7,">= 
     + "\n"
     + ((stack1 = container.invokePartial(partials.footer,depth0,{"name":"footer","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"usePartial":true,"useData":true});
-Handlebars.registerPartial("footer", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<footer>\n    <a class=\"scroll\" data-speed=\"100\" href=\"#top\">\n        <div class=\"triangle\"></div>\n    </a>\n</footer>\n";
-},"useData":true}))
 Handlebars.registerPartial("header", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
