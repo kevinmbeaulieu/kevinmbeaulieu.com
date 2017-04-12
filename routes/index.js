@@ -65,7 +65,7 @@ function createRoute(page) {
         config.text_left = config.text_left.join(" ");
     }
     if (config.hasOwnProperty('text_right')) {
-        config.text_left = config.text_right.join(" ");
+        config.text_right = config.text_right.join(" ");
     }
 
     // Provide route for same-page anchors
