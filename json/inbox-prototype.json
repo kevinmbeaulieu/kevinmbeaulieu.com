@@ -1,0 +1,21 @@
+{
+    "title": "Google Inbox Prototype",
+    "video": "inbox-prototype.mp4",
+    "video_frame": false,
+    "video_fallback": "inbox-prototype.png",
+    "video_fallback_alt": "Google Inbox Prototype",
+    "text_right": [
+        "<p>While learning to use <a",
+        "href='https://facebook.github.io/origami/' target='_blank'>Origami</a>",
+        "& <a href='https://en.wikipedia.org/wiki/Quartz_Composer'",
+        "target='_blank'>Quartz Composer</a> for creating interactive",
+        "prototypes, I built this recreation of",
+        "<a href='https://www.google.com/inbox/' target='_blank'>Google",
+        "Inbox for iOS</a>. I created all of the graphics, including the",
+        "icons, from scratch in <a href='http://sketchapp.com'",
+        "target='_blank'>Sketch</a> (excluding the stock photos used as",
+        "profile pictures). I then fed the Sketch file into Quartz Composer",
+        "and used Origami to create all of the interactions & animations",
+        "that you see in this demo.</p>"
+    ]
+}

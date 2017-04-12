@@ -1,0 +1,21 @@
+{
+    "title": "Illustrations",
+    "subtitle": "Made in Sketch",
+    "images": [
+        {
+            "file": "macintosh.png",
+            "alt_text": "Original Macintosh computer",
+            "caption": "Original Macintosh computer"
+        },
+        {
+            "file": "macbook.png",
+            "alt_text": "MacBook (Front View)",
+            "caption": "MacBook (Front View)"
+        },
+        {
+            "file": "macbook-keyboard.png",
+            "alt_text": "MacBook Pro (Top View)",
+            "caption": "MacBook Pro (Top View)"
+        }
+    ]
+}
