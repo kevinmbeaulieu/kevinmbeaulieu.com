@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400">
+        <link rel="stylesheet" type="text/css" href="css/default.css">
+
+        <script src="js/smoothscroll.js"></script>
+
+        <meta name="viewport" content="width=device-width" />
+
+        <title>{{title}}</title>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-57392466-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </head>
+
+    <body>
+        {{> header }}
+
+        <main>
+            <h1>{{title}}</h1>
+            {{#if subtitle }}
+                <p class="subtitle">{{{subtitle}}}</p>
+            {{/if}}
+
+            <section class="content">
+                <div {{#if text_right}}class="half-width"{{/if}}>
+                    {{#if images }}
+                        {{#each images }}
+                            <div class="image">
+                                <img src="/img/{{this.file}}" alt="{{this.alt_text}}">
+                                {{#if this.caption }}
+                                    <div class="caption">{{this.caption}}</div>
+                                {{/if}}
+                            </div>
+                        {{/each}}
+                    {{/if}}
+                    {{#if video }}
+                        {{#if video_frame }}
+                            <div class="iphone-4s-frame">
+                                <div class="video-responsive">
+                                    <video loop autoplay>
+                                        <source src="img/{{video}}" type="video/mp4">
+                                        <img src="img/{{video_fallback}}" alt="{{video_fallback_alt}}">
+                                    </video>
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="video-responsive">
+                                <video loop autoplay>
+                                    <source src="img/{{video}}" type="video/mp4">
+                                    <img src="img/{{video_fallback}}" alt="{{video_fallback_alt}}">
+                                </video>
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                    {{{text_left}}}
+                </div>
+                {{#if text_right }}
+                    <div class="half-width">
+                        {{{text_right}}}
+                    </div>
+                {{/if}}
+            </section>
+        </main>
+
+        {{> projects-grid }}
+
+        {{> footer }}
+
+    </body>
+
+</html>
