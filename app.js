@@ -1,5 +1,4 @@
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
 var express = require('express');
 var expHbs  = require('express-handlebars');
 var expLess = require('express-less');
@@ -19,7 +18,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', expLess(__dirname + '/less', {
     compress: true,
