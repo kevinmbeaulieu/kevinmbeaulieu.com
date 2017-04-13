@@ -70,13 +70,13 @@
         /*
          * On page load
          */
-        var canvas = document.getElementById("shapes");
-        var context = canvas.getContext('2d');
-        var shapes = new Array();
-        var shapeInitialDensity = 0.04;
-        var spawnRate = 0.03;
+        let canvas = document.getElementById("shapes");
+        let context = canvas.getContext('2d');
+        let shapesArr = new Array();
+        let shapeInitialDensity = 0.04;
+        let spawnRate = 0.03;
+
         var startShapes = 0;
-        var didScroll = false;
 
         window.onload = function() {
             resize();
@@ -96,7 +96,7 @@
         }
 
         function drawShape(h) {
-            var size = (1 - h.depth) * 10 + 5;
+            let size = (1 - h.depth) * 10 + 5;
 
             context.beginPath();
             context.moveTo(h.x +  size * Math.cos(h.angle),
@@ -108,7 +108,7 @@
                     * Math.sin(i * 2 * Math.PI / h.numSides + h.angle));
             }
 
-            var alpha = 0.5 - h.depth * h.depth;
+            let alpha = 0.5 - h.depth * h.depth;
             context.strokeStyle = "rgba(147, 148, 152, " + alpha + ")";
             context.lineWidth = 1;
             context.stroke();
@@ -116,21 +116,21 @@
 
         function spawnShape(atTop) {
             var depth = Math.random();
-            var dir = -Math.PI / 2;
-            var angle = Math.random()*2*Math.PI;
-            var angspeed = Math.random()*0.01;
-            var size = (1 - depth) * 10 + 5;
-            var position = {
+            let dir = -Math.PI / 2;
+            let angle = Math.random()*2*Math.PI;
+            let angspeed = Math.random()*0.01;
+            let size = (1 - depth) * 10 + 5;
+            let position = {
                 x: Math.random() * (canvas.width - 60) + 30,
                 y: atTop ? (-size - 5) : (Math.random() * canvas.height)
             };
 
-            var numSides = Math.random() < 0.6 ? 6 : 3;
+            let numSides = Math.random() < 0.6 ? 6 : 3;
             if (numSides == 3) {
                 depth += (1 - depth) * 0.2;
             }
 
-            shapes.push({
+            shapesArr.push({
                 numSides: numSides,
                 x: position.x,
                 y: position.y,
@@ -160,26 +160,26 @@
             context.restore();
 
             // Draw shapes
-            for(var i = 0; i < shapes.length; i++) {
-                var shape = shapes[i];
+            for(var i = 0; i < shapesArr.length; i++) {
+                let shape = shapesArr[i];
                 drawShape(shape);
 
-                var speed = (1 - shape.depth * shape.depth) / 3 + 0.1;
+                let speed = (1 - shape.depth * shape.depth) / 3 + 0.1;
                 shape.x += speed * Math.cos(shape.dir);
                 shape.y -= speed * Math.sin(shape.dir);
 
                 shape.angle += shape.angspeed;
 
-                var size = (1 - shape.depth) * 10 + 5;
+                let size = (1 - shape.depth) * 10 + 5;
                 if(shape.x < -size - 6 || shape.x > canvas.width + size + 6 ||
                         shape.y < -size - 6 || shape.y > canvas.height + size + 6) {
-                    shapes.splice(i, 1);
+                    shapesArr.splice(i, 1);
                     i--;
                 }
             }
 
             // Draw gradient mask
-            var mask = context.createLinearGradient(0, canvas.height - 100, 0, canvas.height);
+            let mask = context.createLinearGradient(0, canvas.height - 100, 0, canvas.height);
             mask.addColorStop(0, "rgba(255, 255, 255, 0)");
             mask.addColorStop(1, "rgba(255, 255, 255, 255)");
 

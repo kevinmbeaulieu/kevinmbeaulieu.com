@@ -1,15 +1,15 @@
-var bodyParser = require('body-parser');
-var express = require('express');
-var expHbs  = require('express-handlebars');
-var expLess = require('express-less');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var path = require('path');
+let bodyParser = require('body-parser');
+let express = require('express');
+let expHbs  = require('express-handlebars');
+let expLess = require('express-less');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let path = require('path');
 
 // router setup
-var index = require('./routes/index');
+let index = require('./routes/index');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('view engine', 'ejs');
@@ -28,7 +28,7 @@ app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    var err = new Error('Not Found');
+    let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

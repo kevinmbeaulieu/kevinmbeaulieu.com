@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var pages = [
+let pages = [
     {
         route: '/',
         config: require('../json/index.json')
@@ -57,8 +57,8 @@ var pages = [
 ];
 
 function createRoute(page) {
-    var route = page.route;
-    var config = page.config;
+    let route = page.route;
+    let config = page.config;
 
     // Store long description as array since JSON doesn't allow multiline strings
     if (config.hasOwnProperty('text_left')) {
