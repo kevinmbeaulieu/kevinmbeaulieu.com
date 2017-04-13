@@ -1,4 +1,4 @@
-{{> top }}
+<% include ./top %>
 <section id="header-container">
     <header>
         <h2>
@@ -14,7 +14,7 @@
                 My Story
             </a></p>
             <div class="spacer"></div>
-            <p><a href="{{route}}#mywork">
+            <p><a href="<%= hasOwnProperty('route') ? route : '/' %>#mywork">
                 My Work
             </a></p>
             <p><a href="/#letstalk">

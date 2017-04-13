@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    {{> top }}
+    <% include partials/top %>
     <section id="intro-section">
         <canvas id="shapes" width="700px"></canvas>
         <object id="title" type="image/svg+xml" data="img/title.svg">
@@ -51,7 +51,7 @@
         </p>
     </section>
 
-    {{> projects-grid }}
+    <% include partials/projects-grid %>
 
     <section>
         <h2><a name="letstalk">
@@ -64,7 +64,7 @@
         </p>
     </section>
 
-    {{> footer }}
+    <% include partials/footer %>
 
     <script type="text/javascript">
         /*

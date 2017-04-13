@@ -13,9 +13,8 @@ var index = require('./routes/index');
 var app = express();
 
 // view engine setup
-app.set('view engine', 'handlebars');
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', expHbs());
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

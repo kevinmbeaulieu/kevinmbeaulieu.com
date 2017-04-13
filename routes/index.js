@@ -69,7 +69,7 @@ function createRoute(page) {
     }
 
     // Provide route for same-page anchors
-    config.helpers = { 'route': () => route };
+    config.route = route;
 
     router.get(route, (req, res, next) => {
         res.render(page.route === '/' ? 'index' : 'project', config);
