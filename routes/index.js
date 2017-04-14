@@ -1,57 +1,72 @@
 let express = require('express');
 let router = express.Router();
 
+let projectRoutes = {
+    'thumbtack': '/thumbtack',
+    'endless': '/endless',
+    'flint': '/flint',
+    'password-manager': '/password-manager',
+    'blur-focus': '/blur-focus',
+    'clean-menu-bar': '/clean-menu-bar',
+    'cerebrum-app': '/cerebrum-app',
+    'electrode-app': '/electrode-app',
+    '3d-tetris': '/3d-tetris',
+    'inbox-prototype': '/inbox-prototype',
+    'illustrations': '/illustrations',
+    'weather-app': '/weather-app'
+};
+
 let pages = [
     {
         route: '/',
         config: require('../json/index.json')
     },
     {
-        route: '/thumbtack',
+        route: projectRoutes['thumbtack'],
         config: require('../json/thumbtack.json')
     },
     {
-        route: '/endless',
+        route: projectRoutes['endless'],
         config: require('../json/endless.json')
     },
     {
-        route: '/flint',
+        route: projectRoutes['flint'],
         config: require('../json/flint.json')
     },
     {
-        route: '/password-manager',
+        route: projectRoutes['password-manager'],
         config: require('../json/password-manager.json')
     },
     {
-        route: '/blur-focus',
+        route: projectRoutes['blur-focus'],
         config: require('../json/blur-focus.json')
     },
     {
-        route: '/clean-menu-bar',
+        route: projectRoutes['clean-menu-bar'],
         config: require('../json/clean-menu-bar.json')
     },
     {
-        route: '/cerebrum-app',
+        route: projectRoutes['cerebrum-app'],
         config: require('../json/cerebrum-app.json')
     },
     {
-        route: '/electrode-app',
+        route: projectRoutes['electrode-app'],
         config: require('../json/electrode-app.json')
     },
     {
-        route: '/3d-tetris',
+        route: projectRoutes['3d-tetris'],
         config: require('../json/3d-tetris.json')
     },
     {
-        route: '/inbox-prototype',
+        route: projectRoutes['inbox-prototype'],
         config: require('../json/inbox-prototype.json')
     },
     {
-        route: '/illustrations',
+        route: projectRoutes['illustrations'],
         config: require('../json/illustrations.json')
     },
     {
-        route: '/weather-app',
+        route: projectRoutes['weather-app'],
         config: require('../json/weather-app.json')
     }
 ];
@@ -70,6 +85,9 @@ function createRoute(page) {
 
     // Provide route for same-page anchors
     config.route = route;
+
+    // Provide routes for projects grid
+    config.projectRoutes = projectRoutes;
 
     router.get(route, (req, res, next) => {
         res.render(page.route === '/' ? 'index' : 'project', config);
