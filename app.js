@@ -28,9 +28,9 @@ app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    let err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    let notFoundError = new Error('Not Found');
+    notFoundError.status = 404;
+    next(notFoundError);
 });
 
 // error handler
