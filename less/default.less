@@ -51,18 +51,27 @@ section {
         }
 
         > div {
-            padding: 0 @base-font-size * 3;
             flex-grow: 1;
+
+            @media @not-mobile {
+                padding: 0 @base-font-size * 3;
+            }
+
+            @media @mobile {
+                padding: 0 @base-font-size * 1;
+            }
 
             &.half-width {
                 width: 50%;
 
-                &:first-child {
-                    padding: 0 20px 0 0;
-                }
+                @media @not-mobile {
+                    &:first-child {
+                        padding: 0 20px 0 0;
+                    }
 
-                &:last-child {
-                    padding: 0 0 0 20px;
+                    &:last-child {
+                        padding: 0 0 0 20px;
+                    }
                 }
             }
 
