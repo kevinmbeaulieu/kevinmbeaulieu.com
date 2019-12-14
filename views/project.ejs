@@ -24,7 +24,7 @@
     </head>
 
     <body>
-        <% include partials/header %>
+        <%- include('partials/header.ejs') %>
 
         <main>
             <h1><%= title %></h1>
@@ -73,9 +73,9 @@
             </section>
         </main>
 
-        <% include partials/projects-grid %>
+        <%- include('partials/projects-grid.ejs') %>
 
-        <% include partials/footer %>
+        <%- include('partials/footer.ejs') %>
 
     </body>
 

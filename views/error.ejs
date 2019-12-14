@@ -24,14 +24,14 @@
     </head>
 
     <body>
-        <% include partials/header %>
+        <%- include('partials/header.ejs') %>
 
         <h1>Sorry, something went wrong. :(</h1>
         <p class="subtitle">Please check back later, or ping me at
         kevinmbeaulieu@gmail.com to let me know what happened.</p>
 
-        <% include partials/projects-grid %>
+        <%- include('partials/projects-grid.ejs') %>
 
-        <% include partials/footer %>
+        <%- include('partials/footer.ejs') %>
     </body>
 </html>
