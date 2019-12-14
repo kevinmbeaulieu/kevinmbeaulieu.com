@@ -23,7 +23,7 @@
         "controls they need to tell us what jobs they can do.</p></li>",
         "<li><p><b>iOS Design System: </b>Built many of the first UI components",
         "for our iOS design system and extracted them into a static library.<p></li>",
-        "<li><p><b>iOS/macOS UI Component Playground: </b>Built a cross-platform",
+        "<li><p><b>iOS UI Component Playground: </b>Built an",
         "internal playground app for developers and designers to interactively",
         "develop and QA all the UI components for our iOS apps.</p></li>",
         "<li><p><b>Accessibility: </b>Championed a accessibility-first approach to",
