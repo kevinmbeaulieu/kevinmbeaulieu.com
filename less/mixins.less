@@ -94,11 +94,12 @@
 }
 
 .p {
-    @font-size: @base-font-size * 1;
+    @font-size: @base-font-size * 1.2;
     .base-paragraph-font(@font-size, @font-size * 1.8);
     letter-spacing: @font-size * 0.007;
     color: @text-color;
     margin-top: 0;
-    margin-bottom: @font-size * 1.5;
+    margin-bottom: @font-size * 0.5;
     text-align: justify;
+    hyphens: auto;
 }
