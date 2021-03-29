@@ -7,4 +7,4 @@ My portfolio website www.kevinmbeaulieu.com
 
 # Publish
 
-Changes are automatically deployed by Heroku on commit to `master`.
+Changes are automatically deployed by Heroku on commit to `main`.
