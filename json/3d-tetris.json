@@ -6,7 +6,7 @@
             "alt_text": "3D Tetris screenshot"
         }
     ],
-    "text_left": [
+    "html_left": [
         "<p>3D Tetris is a game I built in high school to learn how",
         "to use the <a href='https://unity3d.com' target='_blank'>Unity</a>",
         "game engine.</p>"

@@ -4,7 +4,7 @@
     "video_frame": false,
     "video_fallback": "inbox-prototype.png",
     "video_fallback_alt": "Google Inbox Prototype",
-    "text_right": [
+    "html_right": [
         "<p>While learning to use <a",
         "href='https://facebook.github.io/origami/' target='_blank'>Origami</a>",
         "& <a href='https://en.wikipedia.org/wiki/Quartz_Composer'",

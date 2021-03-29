@@ -76,11 +76,11 @@ function createRoute(page) {
     let config = page.config;
 
     // Store long description as array since JSON doesn't allow multiline strings
-    if (config.hasOwnProperty('text_left')) {
-        config.text_left = config.text_left.join(" ");
+    if (config.hasOwnProperty('html_left')) {
+        config.html_left = config.html_left.join(" ");
     }
-    if (config.hasOwnProperty('text_right')) {
-        config.text_right = config.text_right.join(" ");
+    if (config.hasOwnProperty('html_right')) {
+        config.html_right = config.html_right.join(" ");
     }
 
     // Provide route for same-page anchors

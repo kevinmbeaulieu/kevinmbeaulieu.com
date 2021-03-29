@@ -4,7 +4,7 @@
     "video_frame": true,
     "video_fallback": "weather-sunny.png",
     "video_fallback_alt": "Weather app screencast",
-    "text_right": [
+    "html_right": [
         "<p>This iOS app was an exercise in using",
         "<a href='https://www.adobe.com/products/aftereffects.html'",
         "target='_blank'>Adobe After Effects</a> to create animations like",

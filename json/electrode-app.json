@@ -6,7 +6,7 @@
             "alt_text": "Electrode screenshot"
         }
     ],
-    "text_right": [
+    "html_right": [
         "<p>Electrode is an iOS game I created in high school. It's",
         "a 2d physics-based game in which the user must guide charged",
         "particles to a target. Touching the screen creates a positive field",

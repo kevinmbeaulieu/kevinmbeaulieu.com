@@ -33,7 +33,7 @@
             <% } %>
 
             <section class="content">
-                <div <% if (hasOwnProperty('text_right')) { %>class="half-width"<% } %>>
+                <div <% if (hasOwnProperty('html_right')) { %>class="half-width"<% } %>>
                     <% if (hasOwnProperty('images')) { %>
                         <% images.forEach(function(image) { %>
                             <div class="image">
@@ -63,11 +63,11 @@
                             </div>
                         <% } %>
                     <% } %>
-                    <%- hasOwnProperty('text_left') ? text_left : '' %>
+                    <%- hasOwnProperty('html_left') ? html_left : '' %>
                 </div>
-                <% if (hasOwnProperty('text_right')) { %>
+                <% if (hasOwnProperty('html_right')) { %>
                     <div class="half-width">
-                        <%- text_right %>
+                        <%- html_right %>
                     </div>
                 <% } %>
             </section>
